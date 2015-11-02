@@ -46,13 +46,19 @@ LTCvocabulary Arkham {
 
 theory T : Arkham {
     // investigator moves
+    
     // gate stuff & gate stuff caused by investigator
+    
     // monster stuff
     
     // win conditions
     {
+        // Win is caused by the amount of closed gates at t + 1 being higher or equal to the amount required
         ! t [Time] : C_Win(t) <- #{ b : Closed_Gate(t, b)} + #{ : Close_Gate(t) } >= Closed_To_Win .
-        
+        // Lose is caused by the amount of open gates at t + 1 being higher or equal to the amount required
+        ! t [Time] : C_Lose(t) <- #{ b : Open_Gate(t, b)} + #{ b : C_Open_Gate(t, b) } >= Open_To_Lose .
+        // Lose is caused by not being able to move at player_turn
+        ! t [Time] : C_Lose(t) <- GameState(t) = monster_turn & ? l : Location(t) = l & (! l2 : Has_Connection(l,l2) => Monsters_In(t,l2) >= 3).
     }
     
     // state changes
@@ -67,9 +73,9 @@ theory T : Arkham {
         // If current turn is player turn and not won or lost, next turn is monster turn.
     	! t [Time] : GameState(t + 1) = monster_turn <- GameState(t) = player_turn & ~ C_Win(t) & ~ C_Lose(t).
         // If there is a cause to win in current turn, next turn is won.
-        ! t [Time] : Gamestate(t + 1) = won <- C_Win(t).
+        ! t [Time] : GameState(t + 1) = won <- C_Win(t).
         // If there is a cause to lose in current turn, next turn is lost.
-        ! t [Time] : Gamestate(t + 1) = lost <- C_Lose(t).
+        ! t [Time] : GameState(t + 1) = lost <- C_Lose(t).
     }
     
     
