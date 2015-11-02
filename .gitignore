@@ -1,0 +1,6 @@
+# idp shit #
+*.tidp
+
+# LaTeX #
+*.log
+*.aux
