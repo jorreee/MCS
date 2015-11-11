@@ -46,10 +46,13 @@ LTCvocabulary Arkham {
 
 theory T : Arkham {
     // INVESTIGATOR MOVES AND ATTACKS
+    Location(Start) = I_Location .
     {
-        // Every player turn the investigator moves from a location l to an adjacent location l2 where there are less than 3 monsters
-        
+        // Every player turn the investigator moves from a location to an adjacent location l where there are less than 3 monsters
+        ! t [Time] l [location] :  Location(t) = l <- Move_To(t,l) .    
     }
+    ! t [Time] l [location] : Move_To(t+1,l) => Has_Connection(Location(t),l) & Monsters_In(t+1,l) < 3 & GameState(t+1) = player_turn .
+    
     // If the investigator attacks, all monsters in the location die
     ! t [Time] : Attack(t) => ? l [location] : Location(t) = l & Monsters_In(t,l) = 0 .
     // If the investigator attacks, he gains clues in t+1 equal to the monsters killed capped at 10
@@ -65,6 +68,10 @@ theory T : Arkham {
     ! t [Time] : Close_Gate(t) => Clues(t+1) = Clues(t) - 2 .
     // If there is cause for a gate to open at time t, it will open at time t
     ! t [Time] b [building] : C_Open_Gate(t,b) => Open_Gate(t,b) & ~Closed_Gate(t,b).
+    
+    
+    // An investigator can only do one action per turn
+    ! t [Time] : GameState(t) = player_turn => Attack(t) | Close_Gate(t) | ~(Attack(t) & Close_Gate(t)) .
     
     
     // MONSTER STUFF
@@ -210,6 +217,12 @@ procedure allVerifications(strucToCheck){
     verification7proc(strucToCheck)
 }
 
+// Use this to map the vocabulary of the structures back to the Arkham vocabulary.
+procedure reduceVoc(struc) {
+    S = clone(struc)
+    setvocabulary(S, Arkham)
+    return S
+}
 
 // DO NOT change the includes
 include "visualisation.idp"
