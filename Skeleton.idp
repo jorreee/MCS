@@ -145,7 +145,7 @@ procedure show(struc) {
 	TH = clone(struc);
     setvocabulary(TH, Arkham);
     S = calculatedefinitions(merge(TimeTheo, T), TH)
-    S = propagate(T,S)
+    //S = propagate(T,S)
 
     local model = modelexpand(T, S)[1];
     setvocabulary(model, V_out);
