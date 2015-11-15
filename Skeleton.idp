@@ -49,25 +49,25 @@ LTCvocabulary Arkham {
 
 theory T : Arkham {
     // INVESTIGATOR MOVES AND ATTACKS
-    Location(Start) = I_Location .
+
     {
         // Every player turn the investigator moves from a location to an adjacent location l where there are less than 3 monsters
+        Location(Start) = I_Location <- .
         ! t [Time] l [location] :  Location(t) = l <- Move_To(t,l) .    
     }
-    ! t [Time] l [location] : Move_To(Next(t),l) => Has_Connection(Location(t),l) & Monsters_In(Next(t),l) < 3 & GameState(Next(t)) = player_turn .
+//    ! t [Time] l [location] : Move_To(Next(t),l) => Has_Connection(Location(t),l) & Monsters_In(Next(t),l) < 3 & GameState(Next(t)) = player_turn .
 
     // If the investigator attacks, all monsters in the location die
     ! t [Time] : Attack(t) => ? l [location] : Location(t) = l & Monsters_In(t,l) = 0 .
     // If the investigator attacks, he gains clues in t+1 equal to the monsters killed capped at 10
-    /*
     {
+        Clues(Start) = 0 <- .
         ! t [Time] : Clues(Next(t)) = 10 <- ? l [location] : Attack(t) & Clues(t) + Monsters_In(t-1,l) > 10 & Location(t) = l .
         ! t [Time] l [location] : Clues(Next(t)) = Clues(t) + Monsters_In(t-1,l) <- Attack(t) & Clues(t) + Monsters_In(t-1,l) > 10 & Location(t) = l .
         ! t [Time] : Clues(Next(t)) = Clues(t) <- ~Attack(t) .       
     }
-	*/   	
     ! t [Time] : Clues(t) =< 10 .
-    Clues(Start) = 0 .
+    
     
     // GATE STUFF
     {
@@ -98,30 +98,31 @@ theory T : Arkham {
     
     
     // WIN/LOSE CONDITIONS
+
     {
         // Win is caused by the amount of closed gates at t + 1 being higher or equal to the amount required
-        ! t [Time] : C_Win(t) <- #{ b [building] : Closed_Gate(t, b)} + #{ : Close_Gate(t) } >= Closed_To_Win .
+       ! t [Time] : C_Win(t) <- #{ b [building] : Closed_Gate(t, b)} + #{ : Close_Gate(t) } >= Closed_To_Win .
         // Lose is caused by the amount of open gates at t + 1 being higher or equal to the amount required
-        ! t [Time] : C_Lose(t) <- #{ b [building] : Open_Gate(t, b)} + #{ b [building] : C_Open_Gate(t, b) } >= Open_To_Lose .
+       ! t [Time] : C_Lose(t) <- #{ b [building] : Open_Gate(t, b)} + #{ b [building] : C_Open_Gate(t, b) } >= Open_To_Lose .
         // Lose is caused by not being able to move at player_turn
-        ! t [Time] : C_Lose(t) <- GameState(t) = monster_turn & ? l : Location(t) = l & (! l2 : Has_Connection(l,l2) => Monsters_In(t,l2) >= 3).
+       ! t [Time] : C_Lose(t) <- GameState(t) = monster_turn & ? l : Location(t) = l & (! l2 : Has_Connection(l,l2) => Monsters_In(t,l2) >= 3).
     }
     
     // STATE CHANGES
-    GameState(Start) = player_turn.
     {
+         GameState(Start) = player_turn <- .
         // If the game is won, it stays that way.
-        ! t [Time] : GameState(Next(t)) = won <- GameState(t) = won | C_Win(t).
+         ! t [Time] : GameState(Next(t)) = won <- GameState(t) = won | C_Win(t).
         // If the game is lost, it stays that way.
-        ! t [Time] : GameState(Next(t)) = lost <- GameState(t) = lost | C_Lose(t).
+         ! t [Time] : GameState(Next(t)) = lost <- GameState(t) = lost | C_Lose(t).
         // If current turn is monster turn and not won or lost, next turn is player turn.
-    	! t [Time] : GameState(Next(t)) = player_turn <- GameState(t) = monster_turn & ~ C_Win(t) & ~ C_Lose(t).
+    	 ! t [Time] : GameState(Next(t)) = player_turn <- GameState(t) = monster_turn & ~ C_Win(t) & ~ C_Lose(t).
         // If current turn is player turn and not won or lost, next turn is monster turn.
-    	! t [Time] : GameState(Next(t)) = monster_turn <- GameState(t) = player_turn & ~ C_Win(t) & ~ C_Lose(t).
+    	 ! t [Time] : GameState(Next(t)) = monster_turn <- GameState(t) = player_turn & ~ C_Win(t) & ~ C_Lose(t).
         // If there is a cause to win in current turn, next turn is won.
-        //! t [Time] : GameState(Next(t)) = won <- C_Win(t).
+        // ! t [Time] : GameState(Next(t)) = won <- C_Win(t).
         // If there is a cause to lose in current turn, next turn is lost.
-        //! t [Time] : GameState(Next(t)) = lost <- C_Lose(t).
+        // ! t [Time] : GameState(Next(t)) = lost <- C_Lose(t).
     }
     
 }
