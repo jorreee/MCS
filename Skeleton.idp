@@ -44,6 +44,9 @@ LTCvocabulary Arkham {
     // Causes to win or lose
     C_Win(Time)
     C_Lose(Time)
+    
+    // Verification
+    Reachable(location, location) // true if location b is reachable from location a
 }
 
 
@@ -167,18 +170,24 @@ procedure show(struc) {
  ************************************************/
 
 theory verification1: Arkham{
-	//Verify something here
+	{
+        // Location l2 is reachable from location l if l2 is connected to l or there is a location l3 connected to l within reach of l2
+        ! l [location] l2 [location] : Reachable(l,l2) <- (Has_Connection(l,l2) & l ~= l2) | (? l3 [location] : Has_Connection(l,l3) & Reachable(l3,l2)) .
+    }
+    // Every location can be reached from every other location
+    ! l [location] l2 [location] : Reachable(l,l2) .
 }
 
 procedure verification1proc(struc){
     T1 = merge(T, verification1) // You can use this to merge two theories, i.e. T1 is the combination of theory verification1 and theory T.
     
 	//Do something here: verify verification1 in the context of structure struc. 
-	//At least print whether the verification is satisified or not.
+    //At least print whether the verification is satisified or not.
 }
 
 theory verification2: Arkham{
-	//Verify something here
+	// There is no win state in this structure
+    ~? t [Time] : GameState(t) = won .
 }
 
 procedure verification2proc(struc){
@@ -187,7 +196,8 @@ procedure verification2proc(struc){
 }
 
 theory verification3: Arkham{
-	//Verify something here
+	// There is no lost state in this structure
+    ~? t [Time] : GameState(t) = lost .
 }
 
 procedure verification3proc(struc){
@@ -197,7 +207,7 @@ procedure verification3proc(struc){
 
 
 procedure verification4proc(struc){
-	//Do something here. 
+	// Test number of gameturn before lost
 }
 
 theory verification5: Arkham{
@@ -209,7 +219,9 @@ procedure verification5proc(struc){
 	//At least print whether the verification is satisified or not.
 }
 theory verification6: Arkham{
-	//Verify something here
+    // Games remain won or lost
+	! t [Time] : GameState(t) = won => (! nextT [Time] : nextT > t => GameState(nextT) = won) .
+    ! t [Time] : GameState(t) = lost => (! nextT [Time] : nextT > t => GameState(nextT) = lost) .
 }
 
 procedure verification6proc(struc){
@@ -218,7 +230,10 @@ procedure verification6proc(struc){
 }
 
 theory verification7: Arkham{
-    //Verify something here
+    // The investigator doesn't attack
+    ! t [Time] : ~Attack(t) .
+    // It is impossible to win
+    ~? t [Time] : GameState(t) = won .
 }
 
 procedure verification7proc(struc){
