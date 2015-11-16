@@ -76,14 +76,19 @@ theory T : Arkham {
     {
         // An investigator can cause a gate to close if present in a location with an open gate and at least 2 clues
         ! t [Time] : Close_Gate(t) <- ? b [building] : Location(t) = b & Open_Gate(t,b) & Clues(t) >= 2.
-        ! t [Time] b [building] : Open_Gate(Next(t),b) <- C_Open_Gate(t,b) | Open_Gate(t,b).
-        ! t [Time] b [building] : Closed_Gate(Next(t),b) <- (Close_Gate(t) &  Location(t) = b) | Closed_Gate(t,b).
+        // A gate is open if there was a cause for it to open in the previous turn, or if it was already open.
+        ! t [Time] b [building] : Open_Gate(Next(t),b) <- C_Open_Gate(t,b) | (Open_Gate(t,b) & ~(Close_Gate(t) &  Location(t) = b)).
+        // A gate is closed if the investigator closed the gate in the previous turn, or if it was already closed and there is no cause for it to open.
+        ! t [Time] b [building] : Closed_Gate(Next(t),b) <- ((Close_Gate(t) &  Location(t) = b) | Closed_Gate(t,b)) & ~ C_Open_Gate(t,b).
          
     }
     // If the investigator closes a gate, he will lose 2 clues
     ! t [Time] : Close_Gate(t) => Clues(Next(t)) = Clues(t) - 2 .
-    // If there is cause for a gate to open at time t, it will open at time t
-    ! t [Time] b [building] : C_Open_Gate(t,b) => Open_Gate(Next(t),b) & ~Closed_Gate(Next(t),b).
+    
+    // If a gate is open, it is not closed.
+//    ! t [Time] b [building] : Open_Gate(t,b) => ~ Closed_Gate(t,b).
+    // If a gate is closed, it is not open.
+//     ! t [Time] b [building] : Closed_Gate(t,b) => ~ Open_Gate(t,b).
     
     
     // An investigator can only do one action per turn
@@ -92,15 +97,29 @@ theory T : Arkham {
     
     // MONSTER STUFF
     {
+        
+        ! t [Time] l [location] : Monsters_In(Next(t),l) =  Monsters_In(t,l) <- ~ Exit_Gate(t,l) | Monsters_In(t,l) = 3.
+        // If a monster exits a gate at time t, it will be in that building at time t + 1
+    	! t [Time] b [building] : Monsters_In(Next(t),b) = Monsters_In(t,b) + 1 <- Exit_Gate(t,b) & Monsters_In(t,b) < 3.
+        // There are no monsters in the beginning.
+        ! t [Time] l [location] : Monsters_In(Start,l) = 0 <- .
+        
+        
         // Every monster turn every monster moves from a location l to an adjacent district d where there are less than 3 monsters
-        ! t [Time] l [location] : Monsters_In(t,l) = sum{ d [district], amount [monsternb] : Monster_Move(t,l,d) = amount & Has_Connection(l,d) : amount} <- .
-        ! t [Time] d [district] : Monsters_In(t,d) = sum{ l [location], amount [monsternb] : Monster_Move(t,l,d) = amount & Has_Connection(l,d) : amount } <- .
+//        ! t [Time] l [location] : Monsters_In(Next(t),l) = sum{ d [district], amount [monsternb] : Monster_Move(t,l,d) = amount & Has_Connection(l,d) : amount} <- .
+//         ! t [Time] d [district] : Monsters_In(Next(t),d) = sum{ l [location], amount [monsternb] : Monster_Move(t,l,d) = amount & Has_Connection(l,d) : amount } <- .
         
         // Every monster turn, one monster comes out of every open gate
         ! t [Time] b [building] : Exit_Gate(t,b) <- Open_Gate(t,b) & GameState(t) = monster_turn.
     }
+    
+    ! t [Time] l [location] d [district] : Monster_Move(t,l,d) > 0 => GameState(t) = monster_turn & Has_Connection(l,d).
+    
+//    ! t [Time] l [location] : Monsters_In(t,l) = sum{ d [district], amount [monsternb] : Monster_Move(t,l,d) = amount & Has_Connection(l,d) : amount}.
+//    ! t [Time] d [district] : Monsters_In(t,d) = sum{ l [location], amount [monsternb] : Monster_Move(t,l,d) = amount & Has_Connection(l,d) : amount}.
+    
     // If a monster exits a gate at time t, it will be in that building at time t
-    ! t [Time] b [building] : Exit_Gate(t,b) => Monsters_In(t,b) = 1.
+//    ! t [Time] b [building] : Exit_Gate(t,b) => Monsters_In(t,b) = 1.
     
     
     // WIN/LOSE CONDITIONS
