@@ -71,7 +71,7 @@ theory T : Arkham {
     ! t [Time] l1 [location] l2 [location] : Move_To(t,l1) & Move_To(t,l2) => l1 = l2 .
 
     // Test rule
-	? t [Time] : GameState(t) = player_turn & Attack(t).
+	? t [Time] : GameState(t) = player_turn & Attack(t) & t ~= 20.
     
     // CLUE STUFF
     {
@@ -103,6 +103,7 @@ theory T : Arkham {
     // An investigator can only do one action per (player) turn
     ! t [Time] : GameState(t) = player_turn => Attack(t) | Close_Gate(t) | (~Attack(t) & ~Close_Gate(t)) .
     ! t [Time] : Attack(t) | Close_Gate(t) => GameState(t) = player_turn .
+    // An investigator can only attack if there are monsters at his location.
     ! t [Time] : Attack(t) => ? l [location] : Location(t) = l & Monsters_In(t,l) > 0 .
     
     
@@ -129,7 +130,7 @@ theory T : Arkham {
     	! t [Time] l [location] : Monsters_In(Next(t),l) = 0 <- Attack(t) & Location(t) = l .
         
         // Monster inertia
-        ! t [Time] l [location] : Monsters_In(Next(t),l) = Monsters_In(t,l) <- GameState(t) = player_turn .
+        ! t [Time] l [location] : Monsters_In(Next(t),l) = Monsters_In(t,l) <- GameState(t) = player_turn & ~ Attack(t).
     }
     
     // The amount of monsters leaving a location must be smaller than or equal to 3
