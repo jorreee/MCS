@@ -97,10 +97,14 @@ theory T : Arkham {
     
     // MONSTER STUFF
     {
-        ! t [Time] l [location] : Monsters_In(Next(t),l) =  Monsters_In(t,l) - sum{ d [district], amount [monsternb] : Monster_Move(t,l,d) = amount: amount} + sum{ l2 [location], amount [monsternb] : Monster_Move(t,l2,l) = amount: amount}  <- .      
+        // The amount of monsters in a district is the amount of monsters coming in to the district plus the ones already there, minus the ones leaving.
+        ! t [Time] d [district] : Monsters_In(Next(t),d) =  Monsters_In(t,d) - sum{ d2 [district], amount [monsternb] : Monster_Move(t,d,d2) = amount: amount} + sum{ d2 [location], amount [monsternb] : Monster_Move(t,d2,d) = amount: amount}.      
 //        ! t [Time] l [location] : Monsters_In(Next(t),l) =  Monsters_In(t,l) <- ~ Exit_Gate(t,l) | Monsters_In(t,l) = 3.
+        
         // If a monster exits a gate at time t, it will be in that building at time t + 1
-    	! t [Time] b [building] : Monsters_In(Next(t),b) = Monsters_In(t,b) + 1 <- Exit_Gate(t,b) & Monsters_In(t,b) < 3.
+    	! t [Time] b [building] : Monsters_In(Next(t),b) = Monsters_In(t,b) - sum{ d [district], amount [monsternb] : Monster_Move(t,b,d) = amount: amount}  + 1 <- Exit_Gate(t,b) & GameState(t) = monster_turn .
+        // If there is no gate, monster number in building will be equal to monster in previous turn minus left monsters.
+        ! t [Time] b [building] : Monsters_In(Next(t),b) = Monsters_In(t,b) - sum{ d [district], amount [monsternb] : Monster_Move(t,b,d) = amount: amount}  <- ~ Exit_Gate(t,b) & GameState(t) = monster_turn .
         // There are no monsters in the beginning.
         ! t [Time] l [location] : Monsters_In(Start,l) = 0.
         
@@ -115,18 +119,13 @@ theory T : Arkham {
 //    ! t [Time] l [location] d [district] : Monster_Move(t,l,d) =< Monsters_In(t,l).
     
     // The amount of monsters arriving in a location plus the monsters already there must be smaller than or equal to 3.
-    
+    ! t [Time] l [location] : 
     
     // The amount of monsters in a location must be bigger or equal than the monsters moving out of it.
     ! t [Time] l [location] : Monsters_In(t,l) >=  sum{ d [district], amount [monsternb] : Monster_Move(t,l,d) = amount: amount}.
     // A monster move can only occur if there is a connection and it's a monster turn.
     ! t [Time] l [location] d [district] : Monster_Move(t,l,d) > 0 => GameState(t) = monster_turn & Has_Connection(l,d).
     
-//    ! t [Time] l [location] : Monsters_In(t,l) = sum{ d [district], amount [monsternb] : Monster_Move(t,l,d) = amount & Has_Connection(l,d) : amount}.
-//    ! t [Time] d [district] : Monsters_In(t,d) = sum{ l [location], amount [monsternb] : Monster_Move(t,l,d) = amount & Has_Connection(l,d) : amount}.
-    
-    // If a monster exits a gate at time t, it will be in that building at time t
-//    ! t [Time] b [building] : Exit_Gate(t,b) => Monsters_In(t,b) = 1.
     
     
     // WIN/LOSE CONDITIONS
