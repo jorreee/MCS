@@ -41,6 +41,9 @@ LTCvocabulary Arkham {
     // At Time, monsternb monsters will move from location to district
     Monster_Move(Time, location, district) : monsternb
     
+    // Symmetric Connections
+    Is_Connected(location, location)
+    
     // Causes to win or lose
     C_Win(Time)
     C_Lose(Time)
@@ -52,22 +55,36 @@ LTCvocabulary Arkham {
 
 theory T : Arkham {
     // INVESTIGATOR MOVES AND ATTACKS
-
     {
-        // Every player turn the investigator moves from a location to an adjacent location l where there are less than 3 monsters
-        Location(Start) = I_Location <- .
-        ! t [Time] l [location] :  Location(t) = l <- Move_To(t,l) .    
+        // The investigator has an initial location
+        Location(Start) = I_Location.
+        
+        // The investigator moves to a different location after every (player) turn
+        ! t [Time] l [location] : Location(Next(t)) = l <- Move_To(t,l) & GameState(t) = player_turn.
+        ! t [Time] l [location] : Location(Next(t)) = l <- Location(t) = l & GameState(t) = monster_turn .
     }
-//    ! t [Time] l [location] : Move_To(Next(t),l) => Has_Connection(Location(t),l) & Monsters_In(Next(t),l) < 3 & GameState(Next(t)) = player_turn .
+    // The investigator has a location to move to
+    ! t [Time] : GameState(t) = player_turn => ? l [location] : Move_To(t,l). 
+    // The investigator cannot move to a location with 3 monsters
+    ! t [Time] l [location] : Move_To(t,l) => Is_Connected(Location(t),l) & Monsters_In(t,l) < 3.
+    // The investigator only moves to a single location every (player) turn
+    ! t [Time] l1 [location] l2 [location] : Move_To(t,l1) & Move_To(t,l2) => l1 = l2 .
 
-    // If the investigator attacks, all monsters in the location die
-    ! t [Time] : Attack(t) => ? l [location] : Location(t) = l & Monsters_In(t,l) = 0 .
-    // If the investigator attacks, he gains clues in t+1 equal to the monsters killed capped at 10
+    // Test rule
+	? t [Time] : GameState(t) = player_turn & Attack(t).
+    
+    // CLUE STUFF
     {
-        Clues(Start) = 0 <- .
-        ! t [Time] : Clues(Next(t)) = 10 <- ? l [location] : Attack(t) & Clues(t) + Monsters_In(t-1,l) > 10 & Location(t) = l .
-        ! t [Time] l [location] : Clues(Next(t)) = Clues(t) + Monsters_In(t-1,l) <- Attack(t) & Clues(t) + Monsters_In(t-1,l) > 10 & Location(t) = l .
-        ! t [Time] : Clues(Next(t)) = Clues(t) <- ~Attack(t) .       
+        // The investigator has no clues at the beginning of the game
+        Clues(Start) = 0.
+    	
+        // If the investigator attacks, he gains clues in t+1 equal to the monsters killed capped at 10        
+        ! t [Time] : Clues(Next(t)) = 10 <- ? l [location] : Attack(t) & Clues(t) + Monsters_In(t,l) > 10 & Location(t) = l .
+        ! t [Time] l [location] : Clues(Next(t)) = Clues(t) + Monsters_In(t,l) <- Attack(t) & Clues(t) + Monsters_In(t,l) =< 10 & Location(t) = l .
+        ! t [Time] : Clues(Next(t)) = Clues(t) <- ~Attack(t) & ~Close_Gate(t) .
+	    
+        // If the investigator closes a gate, he will lose 2 clues
+    	! t [Time] : Clues(Next(t)) = Clues(t) - 2 <- Close_Gate(t) .
     }
     ! t [Time] : Clues(t) =< 10 .
     
@@ -82,63 +99,58 @@ theory T : Arkham {
         ! t [Time] b [building] : Closed_Gate(Next(t),b) <- ((Close_Gate(t) &  Location(t) = b) | Closed_Gate(t,b)) & ~ C_Open_Gate(t,b).
          
     }
-    // If the investigator closes a gate, he will lose 2 clues
-    ! t [Time] : Close_Gate(t) => Clues(Next(t)) = Clues(t) - 2 .
     
-    // If a gate is open, it is not closed.
-//    ! t [Time] b [building] : Open_Gate(t,b) => ~ Closed_Gate(t,b).
-    // If a gate is closed, it is not open.
-//     ! t [Time] b [building] : Closed_Gate(t,b) => ~ Open_Gate(t,b).
-    
-    
-    // An investigator can only do one action per turn
+    // An investigator can only do one action per (player) turn
     ! t [Time] : GameState(t) = player_turn => Attack(t) | Close_Gate(t) | (~Attack(t) & ~Close_Gate(t)) .
+    ! t [Time] : Attack(t) | Close_Gate(t) => GameState(t) = player_turn .
+    ! t [Time] : Attack(t) => ? l [location] : Location(t) = l & Monsters_In(t,l) > 0 .
     
     
     // MONSTER STUFF
     {
-        // The amount of monsters in a district is the amount of monsters coming in to the district plus the ones already there, minus the ones leaving.
-        ! t [Time] d [district] : Monsters_In(Next(t),d) =  Monsters_In(t,d) - sum{ d2 [district], amount [monsternb] : Monster_Move(t,d,d2) = amount: amount} + sum{ d2 [location], amount [monsternb] : Monster_Move(t,d2,d) = amount: amount}.      
-//        ! t [Time] l [location] : Monsters_In(Next(t),l) =  Monsters_In(t,l) <- ~ Exit_Gate(t,l) | Monsters_In(t,l) = 3.
-        
-        // If a monster exits a gate at time t, it will be in that building at time t + 1
-    	! t [Time] b [building] : Monsters_In(Next(t),b) = Monsters_In(t,b) - sum{ d [district], amount [monsternb] : Monster_Move(t,b,d) = amount: amount}  + 1 <- Exit_Gate(t,b) & GameState(t) = monster_turn .
-        // If there is no gate, monster number in building will be equal to monster in previous turn minus left monsters.
-        ! t [Time] b [building] : Monsters_In(Next(t),b) = Monsters_In(t,b) - sum{ d [district], amount [monsternb] : Monster_Move(t,b,d) = amount: amount}  <- ~ Exit_Gate(t,b) & GameState(t) = monster_turn .
         // There are no monsters in the beginning.
         ! t [Time] l [location] : Monsters_In(Start,l) = 0.
         
+        // The amount of monsters in a district at time t+1 is the amount of monsters coming in to the district at time t.
+        ! t [Time] d [district] : Monsters_In(Next(t),d) =  sum{ d2 [location], amount [monsternb] : Monster_Move(t,d2,d) = amount: amount} <- GameState(t) = monster_turn.
         
-        // Every monster turn every monster moves from a location l to an adjacent district d where there are less than 3 monsters
-//        ! t [Time] l [location] : Monsters_In(Next(t),l) = sum{ d [district], amount [monsternb] : Monster_Move(t,l,d) = amount & Has_Connection(l,d) : amount} <- .
-//         ! t [Time] d [district] : Monsters_In(Next(t),d) = sum{ l [location], amount [monsternb] : Monster_Move(t,l,d) = amount & Has_Connection(l,d) : amount } <- .
-        
+        // The amount of monsters in a location must be equal to the monsters moving out of it
+    	! t [Time] l [location] : Monsters_In(t,l) =  sum{ d [district], amount [monsternb] : Monster_Move(t,l,d) = amount: amount} <- GameState(t) = monster_turn.
+ 
+        // If a monster exits a gate at time t, it will be in that building at time t + 1
+    	! t [Time] b [building] : Monsters_In(Next(t),b) = 1 <- Exit_Gate(t,b) & GameState(t) = monster_turn .
+        // If there is no gate, monster number in building will be equal to monster in previous turn minus left monsters.
+        ! t [Time] b [building] : Monsters_In(Next(t),b) = 0  <- ~ Exit_Gate(t,b) & GameState(t) = monster_turn .
+  
         // Every monster turn, one monster comes out of every open gate
         ! t [Time] b [building] : Exit_Gate(t,b) <- Open_Gate(t,b) & GameState(t) = monster_turn.
+        
+        // If the investigator attacks, all monsters in the location die
+    	! t [Time] l [location] : Monsters_In(Next(t),l) = 0 <- Attack(t) & Location(t) = l .
+        
+        // Monster inertia
+        ! t [Time] l [location] : Monsters_In(Next(t),l) = Monsters_In(t,l) <- GameState(t) = player_turn .
     }
-//    ! t [Time] l [location] d [district] : Monster_Move(t,l,d) =< Monsters_In(t,l).
     
-    // The amount of monsters arriving in a location plus the monsters already there must be smaller than or equal to 3.
-    ! t [Time] l [location] : 
+    // The amount of monsters leaving a location must be smaller than or equal to 3
+    ! t [Time] l [location] : sum{ d [district], amount [monsternb] : Monster_Move(t,l,d) = amount: amount} =< 3 .
     
-    // The amount of monsters in a location must be bigger or equal than the monsters moving out of it.
-    ! t [Time] l [location] : Monsters_In(t,l) >=  sum{ d [district], amount [monsternb] : Monster_Move(t,l,d) = amount: amount}.
-    // A monster move can only occur if there is a connection and it's a monster turn.
-    ! t [Time] l [location] d [district] : Monster_Move(t,l,d) > 0 => GameState(t) = monster_turn & Has_Connection(l,d).
+    // The amount of monsters arriving in a location must be smaller than or equal to 3
+    ! t [Time] d [district] : sum{ d2 [location], amount [monsternb] : Monster_Move(t,d2,d) = amount: amount} =< 3 .   
     
-    
+    // A monster move can only occur if there is a connection and it's a monster turn
+    ! t [Time] l [location] d [district] : Monster_Move(t,l,d) > 0 => GameState(t) = monster_turn & Is_Connected(l,d).
+    ! t [Time] l [location] d [district] : GameState(t) = player_turn => Monster_Move(t,l,d) = 0 .
     
     // WIN/LOSE CONDITIONS
-
-
     {
         
         // Win is caused by the amount of closed gates at t + 1 being higher or equal to the amount required
-       ! t [Time] : C_Win(t) <- #{ b [building] : Closed_Gate(t, b)} + #{ : Close_Gate(t) } >= Closed_To_Win .
+       ! t [Time] : C_Win(t) <- #{ b [building] : Closed_Gate(t, b)} + #{ : Close_Gate(t) } - #{ b [building] : C_Open_Gate(t, b) } >= Closed_To_Win .
         // Lose is caused by the amount of open gates at t + 1 being higher or equal to the amount required
-       ! t [Time] : C_Lose(t) <- #{ b [building] : Open_Gate(t, b)} + #{ b [building] : C_Open_Gate(t, b) } >= Open_To_Lose .
+       ! t [Time] : C_Lose(t) <- #{ b [building] : Open_Gate(t, b)} + #{ b [building] : C_Open_Gate(t, b) } - #{ : Close_Gate(t) } >= Open_To_Lose .
         // Lose is caused by not being able to move at player_turn
-       ! t [Time] : C_Lose(t) <- GameState(t) = monster_turn & ? l : Location(t) = l & (! l2 : Has_Connection(l,l2) => Monsters_In(t,l2) >= 3).
+       ! t [Time] : C_Lose(t) <- GameState(t) = monster_turn & ? l : Location(t) = l & (! l2 : Is_Connected(l,l2) => Monsters_In(t,l2) >= 3).
     }
     
     // STATE CHANGES
@@ -158,6 +170,10 @@ theory T : Arkham {
         // ! t [Time] : GameState(Next(t)) = lost <- C_Lose(t).
     }
     
+    // SYMMETRIC CONNECTIONS
+    {
+        ! l1 [location] l2 [location] : Is_Connected(l1,l2) <- Has_Connection(l1,l2) | Has_Connection(l2,l1).
+    }
 }
 
 theory TimeTheo : Arkham{
@@ -197,7 +213,7 @@ procedure show(struc) {
 theory verification1: Arkham{
 	{
         // Location l2 is reachable from location l if l2 is connected to l or there is a location l3 connected to l within reach of l2
-        ! l [location] l2 [location] : Reachable(l,l2) <- (Has_Connection(l,l2) & l ~= l2) | (? l3 [location] : Has_Connection(l,l3) & Reachable(l3,l2)) .
+        ! l [location] l2 [location] : Reachable(l,l2) <- (Is_Connected(l,l2) & l ~= l2) | (? l3 [location] : Is_Connected(l,l3) & Reachable(l3,l2)) .
     }
     // Every location can be reached from every other location
     ! l [location] l2 [location] : Reachable(l,l2) .
