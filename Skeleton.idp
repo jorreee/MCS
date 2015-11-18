@@ -61,7 +61,8 @@ theory T : Arkham {
         
         // The investigator moves to a different location after every (player) turn
         ! t [Time] l [location] : Location(Next(t)) = l <- Move_To(t,l) & GameState(t) = player_turn.
-        ! t [Time] l [location] : Location(Next(t)) = l <- Location(t) = l & GameState(t) = monster_turn .
+        ! t [Time] l [location] : Location(Next(t)) = l <- Location(t) = l & GameState(t) ~= player_turn .
+        
     }
     // The investigator has a location to move to
     ! t [Time] : GameState(t) = player_turn => ? l [location] : Move_To(t,l). 
@@ -71,7 +72,7 @@ theory T : Arkham {
     ! t [Time] l1 [location] l2 [location] : Move_To(t,l1) & Move_To(t,l2) => l1 = l2 .
 
     // Test rule
-	? t [Time] : Close_Gate(t) & t ~= 20.
+//	? t [Time] : GameState(t) = lost.
     
     // CLUE STUFF
     {
@@ -132,8 +133,11 @@ theory T : Arkham {
         // If the investigator attacks, all monsters in the location die
     	! t [Time] l [location] : Monsters_In(Next(t),l) = 0 <- Attack(t) & Location(t) = l .
         
-        // Monster inertia
+        // If the investigator does not attack or attacks in a different location, monsters in the current location stays the same.
         ! t [Time] l [location] : Monsters_In(Next(t),l) = Monsters_In(t,l) <- GameState(t) = player_turn & (~ Attack(t) | Attack(t) & Location(t) ~= l).
+        
+        // If the investigator has won or lost, monster amount stays the same.
+        ! t [Time] l [location] : Monsters_In(Next(t),l) = Monsters_In(t,l) <- GameState(t) = won | GameState(t) = lost.
     }
     
     // The amount of monsters leaving a location must be smaller than or equal to 3
