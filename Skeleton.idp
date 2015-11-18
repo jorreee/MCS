@@ -72,7 +72,7 @@ theory T : Arkham {
     ! t [Time] l1 [location] l2 [location] : Move_To(t,l1) & Move_To(t,l2) => l1 = l2 .
 
     // Test rule
-//	? t [Time] : GameState(t) = lost.
+	? t [Time] : GameState(t) = won.
     
     // CLUE STUFF
     {
@@ -158,7 +158,7 @@ theory T : Arkham {
         // Lose is caused by the amount of open gates at t + 1 being higher or equal to the amount required
        ! t [Time] : C_Lose(t) <- #{ b [building] : Open_Gate(t, b)} + #{ b [building] : C_Open_Gate(t, b) } - #{ : Close_Gate(t) } >= Open_To_Lose .
         // Lose is caused by not being able to move at player_turn
-       ! t [Time] : C_Lose(t) <- GameState(t) = monster_turn & ? l : Location(t) = l & (! l2 : Is_Connected(l,l2) => Monsters_In(t,l2) >= 3).
+       ! t [Time] : C_Lose(t) <- GameState(t) = monster_turn & ? l : Location(t) = l & (! l2 : Is_Connected(l,l2) => sum{ d2 [location], amount [monsternb] : Monster_Move(t,d2,l2) = amount: amount} >= 3).
     }
     
     // STATE CHANGES
