@@ -71,7 +71,7 @@ theory T : Arkham {
     ! t [Time] l1 [location] l2 [location] : Move_To(t,l1) & Move_To(t,l2) => l1 = l2 .
 
     // Test rule
-	? t [Time] : GameState(t) = player_turn & Attack(t) & t ~= 20.
+	? t [Time] : Close_Gate(t) & t ~= 20.
     
     // CLUE STUFF
     {
@@ -79,29 +79,32 @@ theory T : Arkham {
         Clues(Start) = 0.
     	
         // If the investigator attacks, he gains clues in t+1 equal to the monsters killed capped at 10        
-        ! t [Time] : Clues(Next(t)) = 10 <- ? l [location] : Attack(t) & Clues(t) + Monsters_In(t,l) > 10 & Location(t) = l .
-        ! t [Time] l [location] : Clues(Next(t)) = Clues(t) + Monsters_In(t,l) <- Attack(t) & Clues(t) + Monsters_In(t,l) =< 10 & Location(t) = l .
+		! t [Time] : Clues(Next(t)) = 10 <- ? l [location] : Attack(t) & Clues(t) + Monsters_In(t,l) > 10 & Location(t) = l & ~ Close_Gate(t).
+        ! t [Time] l [location] : Clues(Next(t)) = Clues(t) + Monsters_In(t,l) <- Attack(t) & Clues(t) + Monsters_In(t,l) =< 10 & Location(t) = l & ~ Close_Gate(t).
         ! t [Time] : Clues(Next(t)) = Clues(t) <- ~Attack(t) & ~Close_Gate(t) .
 	    
         // If the investigator closes a gate, he will lose 2 clues
-    	! t [Time] : Clues(Next(t)) = Clues(t) - 2 <- Close_Gate(t) .
+		! t [Time] : Clues(Next(t)) = Clues(t) - 2 <- Close_Gate(t) .
     }
-    ! t [Time] : Clues(t) =< 10 .
+	! t [Time] : Clues(t) =< 10 .
     
     
     // GATE STUFF
     {
-        // An investigator can cause a gate to close if present in a location with an open gate and at least 2 clues
-        ! t [Time] : Close_Gate(t) <- ? b [building] : Location(t) = b & Open_Gate(t,b) & Clues(t) >= 2.
+       
         // A gate is open if there was a cause for it to open in the previous turn, or if it was already open.
         ! t [Time] b [building] : Open_Gate(Next(t),b) <- C_Open_Gate(t,b) | (Open_Gate(t,b) & ~(Close_Gate(t) &  Location(t) = b)).
         // A gate is closed if the investigator closed the gate in the previous turn, or if it was already closed and there is no cause for it to open.
-        ! t [Time] b [building] : Closed_Gate(Next(t),b) <- ((Close_Gate(t) &  Location(t) = b) | Closed_Gate(t,b)) & ~ C_Open_Gate(t,b).
+        ! t [Time] b [building] : Closed_Gate(Next(t),b) <- ((Close_Gate(t) &  Location(t) = b & Open_Gate(t,b)) | Closed_Gate(t,b)) & ~ C_Open_Gate(t,b).
          
     }
-    
+    ! t [Time] b [building] : Open_Gate(t,b) => ~ Closed_Gate(t,b).
+    ! t [Time] b [building] : Closed_Gate(t,b) => ~ Open_Gate(t,b).
+    ! t [Time] b [building] : Close_Gate(t) & Location(t) = b & ~ C_Open_Gate(t,b) => ~ Open_Gate(Next(t),b).
+    // An investigator can cause a gate to close if present in a location with an open gate and at least 2 clues
+    ! t [Time] : Close_Gate(t) => ? b [building] : Location(t) = b & Open_Gate(t,b) & Clues(t) >= 2.
     // An investigator can only do one action per (player) turn
-    ! t [Time] : GameState(t) = player_turn => Attack(t) | Close_Gate(t) | (~Attack(t) & ~Close_Gate(t)) .
+    ! t [Time] : GameState(t) = player_turn => (Attack(t) | Close_Gate(t) | (~Attack(t) & ~Close_Gate(t))) & ~(Attack(t) & Close_Gate(t)) .
     ! t [Time] : Attack(t) | Close_Gate(t) => GameState(t) = player_turn .
     // An investigator can only attack if there are monsters at his location.
     ! t [Time] : Attack(t) => ? l [location] : Location(t) = l & Monsters_In(t,l) > 0 .
@@ -130,7 +133,7 @@ theory T : Arkham {
     	! t [Time] l [location] : Monsters_In(Next(t),l) = 0 <- Attack(t) & Location(t) = l .
         
         // Monster inertia
-        ! t [Time] l [location] : Monsters_In(Next(t),l) = Monsters_In(t,l) <- GameState(t) = player_turn & ~ Attack(t).
+        ! t [Time] l [location] : Monsters_In(Next(t),l) = Monsters_In(t,l) <- GameState(t) = player_turn & (~ Attack(t) | Attack(t) & Location(t) ~= l).
     }
     
     // The amount of monsters leaving a location must be smaller than or equal to 3
@@ -165,10 +168,6 @@ theory T : Arkham {
     	 ! t [Time] : GameState(Next(t)) = player_turn <- GameState(t) = monster_turn & ~ C_Win(t) & ~ C_Lose(t).
         // If current turn is player turn and not won or lost, next turn is monster turn.
     	 ! t [Time] : GameState(Next(t)) = monster_turn <- GameState(t) = player_turn & ~ C_Win(t) & ~ C_Lose(t).
-        // If there is a cause to win in current turn, next turn is won.
-        // ! t [Time] : GameState(Next(t)) = won <- C_Win(t).
-        // If there is a cause to lose in current turn, next turn is lost.
-        // ! t [Time] : GameState(Next(t)) = lost <- C_Lose(t).
     }
     
     // SYMMETRIC CONNECTIONS
