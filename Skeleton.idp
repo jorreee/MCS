@@ -198,7 +198,8 @@ theory TimeTheo : Arkham{
 
 procedure main() {
     //check()
-    show(Unplayable)
+    //show(Unplayable)
+    verification5proc(reduceVoc(Harder))
 }
 
 
@@ -230,44 +231,102 @@ theory verification1: Arkham{
 }
 
 procedure verification1proc(struc){
-    T1 = merge(T, verification1) // You can use this to merge two theories, i.e. T1 is the combination of theory verification1 and theory T.
+    print(">>>started verification 1...")
     
-	//Do something here: verify verification1 in the context of structure struc. 
-    //At least print whether the verification is satisified or not.
+    T1 = merge(T, verification1) // You can use this to merge two theories, i.e. T1 is the combination of theory verification1 and theory T.
+    stdoptions.nbmodels = 1
+    S = calculatedefinitions(merge(TimeTheo, T1), struc)
+    S = propagate(T1,S)
+	local sols = modelexpand(T1, S)
+	if #sols == 1 then
+		print(">>>verification succesful: All nodes are reachable!")
+    else
+		print(">>>verification failed: Unconnected nodes present in system!")        
+	end
 }
 
 theory verification2: Arkham{
 	// There is no win state in this structure
-    ~? t [Time] : GameState(t) = won .
+    // Hence, it should be unsat if a "won" state is forced
+    ? t [Time] : GameState(t) = won .
 }
 
 procedure verification2proc(struc){
-	//Do something here: verify verification2 in the context of structure struc. 
-	//At least print whether the verification is satisified or not.
+    print(">>>started verification 2...")
+    
+    T2 = merge(T, verification2)
+    stdoptions.nbmodels = 1
+    S = calculatedefinitions(merge(TimeTheo, T2), struc)
+    S = propagate(T2,S)
+	local sols = modelexpand(T2, S)
+	if #sols == 0 then
+		print(">>>verification succesful: It is impossible to win!")
+    else
+		print(">>>verification failed: Win condition found!")        
+	end
 }
 
 theory verification3: Arkham{
 	// There is no lost state in this structure
-    ~? t [Time] : GameState(t) = lost .
+    // Hence, it should be unsat if a "lost" state is forced
+    ? t [Time] : GameState(t) = lost .
 }
 
 procedure verification3proc(struc){
-	//Do something here: verify verification3 in the context of structure struc. 
-	//At least print whether the verification is satisified or not.
+    print(">>>started verification 3...")
+    
+    T3 = merge(T, verification3)
+    stdoptions.nbmodels = 1
+    S = calculatedefinitions(merge(TimeTheo, T3), struc)
+    S = propagate(T3,S)
+	local sols = modelexpand(T3, S)
+	if #sols == 0 then
+		print(">>>verification succesful: It is impossible to lose!")
+    else
+		print(">>>verification failed: Loss condition found!")
+	end
 }
 
 
-procedure verification4proc(struc){
+procedure verification4proc(struc){ // TODO
 	// Test number of gameturn before lost
 }
 
-theory verification5: Arkham{
-	//Verify something here
+theory verification5win: Arkham{
+	// It is possible to win
+    ? t [Time] : GameState(t) = won .
+}
+
+theory verification5lose: Arkham{
+	// It is possible to lose
+    ? t [Time] : GameState(t) = lost .
 }
 
 procedure verification5proc(struc){
-	//Do something here: verify verification5 in the context of structure struc. 
-	//At least print whether the verification is satisified or not.
+    print(">>>started verification 5...")
+    stdoptions.nbmodels = 1
+    
+    T5 = merge(T, verification5win)
+    
+    S = calculatedefinitions(merge(TimeTheo, T5), struc)
+    S = propagate(T5,S)
+	local sols = modelexpand(T5, S)
+	if #sols == 0 then
+		print(">>>verification failed: It is impossible to win!")
+    else
+		print(">>>verification succesful: Win condition found!")
+	end
+
+    T5 = merge(T, verification5lose)
+
+    S = calculatedefinitions(merge(TimeTheo, T5), struc)
+    S = propagate(T5,S)
+    local sols = modelexpand(T5, S)
+    if #sols == 0 then
+		print(">>>verification failed: It is impossible to lose!")
+    else
+		print(">>>verification succesful: Loss condition found!")
+	end
 }
 theory verification6: Arkham{
     // Games remain won or lost
@@ -276,20 +335,41 @@ theory verification6: Arkham{
 }
 
 procedure verification6proc(struc){
-	//Do something here: verify verification6 in the context of structure struc. 
-	//At least print whether the verification is satisified or not.
+    print(">>>started verification 6...")
+    
+    T6 = merge(T, verification6)
+    stdoptions.nbmodels = 1
+    S = calculatedefinitions(merge(TimeTheo, T6), struc)
+    S = propagate(T6,S)
+	local sols = modelexpand(T6, S)
+	if #sols == 0 then
+		print(">>>verification failed: GameStates are unstable!")
+    else
+		print(">>>verification succesful: GameStates are stable!")
+	end
 }
 
 theory verification7: Arkham{
     // The investigator doesn't attack
     ! t [Time] : ~Attack(t) .
     // It is impossible to win
-    ~? t [Time] : GameState(t) = won .
+    // Hence, it should be unsat if a "won" state is forced
+    ? t [Time] : GameState(t) = won .
 }
 
 procedure verification7proc(struc){
-	//Do something here: verify verification7 in the context of structure struc. 
-	//At least print whether the verification is satisified or not.
+    print(">>>started verification 7...")
+    
+    T7 = merge(T, verification7)
+    stdoptions.nbmodels = 1
+    S = calculatedefinitions(merge(TimeTheo, T7), struc)
+    S = propagate(T7,S)
+	local sols = modelexpand(T7, S)
+	if #sols == 0 then
+		print(">>>verification succesful: It is impossible to win when never attacking!")
+    else
+		print(">>>verification failed: Win condition found without attacking!")
+	end
 }
 
 procedure allVerifications(strucToCheck){
