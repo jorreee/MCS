@@ -99,11 +99,11 @@ procedure verify(theo, struc, name, nbExpectedModels){
     S = propagate(T,S)
 	local sols = modelexpand(theo, S)
 	if #sols > nbExpectedModels then
-		print(">>>verification of "..name.." failed! Found too many models!")
+		print(">>>verification of "..name.." failed! Found too many ("..#sols..") models!")
 		return
 	end
 	if #sols < nbExpectedModels then
-		print(">>>verification of "..name.." failed! Found too few models!")
+		print(">>>verification of "..name.." failed! Found too few ("..#sols..") models!")
 		return
 	end
 	print(">>>verification of "..name.." succesful! ")

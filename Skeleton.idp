@@ -72,9 +72,6 @@ theory T : Arkham {
     // The investigator only moves to a single location every (player) turn
     ! t [Time] l1 [location] l2 [location] : Move_To(t,l1) & Move_To(t,l2) => l1 = l2 .
 
-    // Test rule
-	? t [Time] : GameState(t) = won.
-    
     // CLUE STUFF
     {
         // The investigator has no clues at the beginning of the game
@@ -180,10 +177,16 @@ theory T : Arkham {
     	 ! t [Time] : GameState(Next(t)) = monster_turn <- GameState(t) = player_turn & ~ C_Win(t) & ~ C_Lose(t).
     }
     
-    // SYMMETRIC CONNECTIONS
+    // SYMMETRIC CONNECTIONS & REACHABLE
     {
         ! l1 [location] l2 [location] : Is_Connected(l1,l2) <- Has_Connection(l1,l2) | Has_Connection(l2,l1).
+        // Location l2 is reachable from location l if l2 is connected to l or there is a location l3 connected to l within reach of l2
+        ! l [location] l2 [location] : Reachable(l,l2) <- (Is_Connected(l,l2) & l ~= l2) | (? l3 [location] : Is_Connected(l,l3) & Reachable(l3,l2)) .
     }
+    
+    // Testicles
+//	? t [Time] : GameState(t) = won.
+//    GameState(1) ~= lost.
 }
 
 theory TimeTheo : Arkham{
@@ -194,8 +197,8 @@ theory TimeTheo : Arkham{
 }
 
 procedure main() {
-    check()
-    show(Easy)
+    //check()
+    show(Unplayable)
 }
 
 
@@ -222,10 +225,6 @@ procedure show(struc) {
  ************************************************/
 
 theory verification1: Arkham{
-	{
-        // Location l2 is reachable from location l if l2 is connected to l or there is a location l3 connected to l within reach of l2
-        ! l [location] l2 [location] : Reachable(l,l2) <- (Is_Connected(l,l2) & l ~= l2) | (? l3 [location] : Is_Connected(l,l3) & Reachable(l3,l2)) .
-    }
     // Every location can be reached from every other location
     ! l [location] l2 [location] : Reachable(l,l2) .
 }
