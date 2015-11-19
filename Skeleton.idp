@@ -64,6 +64,7 @@ theory T : Arkham {
         ! t [Time] l [location] : Location(Next(t)) = l <- Location(t) = l & GameState(t) ~= player_turn .
         
     }
+    ! t [Time] l [location] : Move_To(t,l) => GameState(t) = player_turn.
     // The investigator has a location to move to
     ! t [Time] : GameState(t) = player_turn => ? l [location] : Move_To(t,l). 
     // The investigator cannot move to a location with 3 monsters
@@ -99,11 +100,16 @@ theory T : Arkham {
         ! t [Time] b [building] : Closed_Gate(Next(t),b) <- ((Close_Gate(t) &  Location(t) = b & Open_Gate(t,b)) | Closed_Gate(t,b)) & ~ C_Open_Gate(t,b).
          
     }
+    // A gate can't be closed and open at the same time.
     ! t [Time] b [building] : Open_Gate(t,b) => ~ Closed_Gate(t,b).
-    ! t [Time] b [building] : Closed_Gate(t,b) => ~ Open_Gate(t,b).
+    // Redundant?
     ! t [Time] b [building] : Close_Gate(t) & Location(t) = b & ~ C_Open_Gate(t,b) => ~ Open_Gate(Next(t),b).
-    // An investigator can cause a gate to close if present in a location with an open gate and at least 2 clues
-    ! t [Time] : Close_Gate(t) => ? b [building] : Location(t) = b & Open_Gate(t,b) & Clues(t) >= 2.
+    // An investigator can only cause a gate to close if present in a location with an open gate and at least 2 clues
+    ! t [Time]: ? b [building] : Close_Gate(t) => Location(t) = b & Open_Gate(t,b) & Clues(t) >= 2.  
+    // An investigator must cause a gate to close if present in a location with an open gate and at least 2 clues
+//    ! t [Time] b [building] : Location(t) = b & Open_Gate(t,b) & Clues(t) >= 2 => Close_Gate(t).
+    // An investigator must attack the monsters if he is at a location with no open gate but with monsters
+//    ! t [Time] l [location] : Location(t) = l & (~ Open_Gate(t,l) | Clues(t) < 2) & Monsters_In(t,l) > 0 => Attack(t).
     // An investigator can only do one action per (player) turn
     ! t [Time] : GameState(t) = player_turn => (Attack(t) | Close_Gate(t) | (~Attack(t) & ~Close_Gate(t))) & ~(Attack(t) & Close_Gate(t)) .
     ! t [Time] : Attack(t) | Close_Gate(t) => GameState(t) = player_turn .
@@ -188,6 +194,7 @@ theory TimeTheo : Arkham{
 }
 
 procedure main() {
+    check()
     show(Easy)
 }
 
