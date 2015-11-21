@@ -54,41 +54,48 @@ LTCvocabulary Arkham {
 
 
 theory T : Arkham {
-    // INVESTIGATOR MOVES AND ATTACKS
+    // INVESTIGATOR MOVEMENT
     {
         // The investigator has an initial location
         Location(Start) = I_Location.
         
         // The investigator moves to a different location after every (player) turn
         ! t [Time] l [location] : Location(Next(t)) = l <- Move_To(t,l) & GameState(t) = player_turn.
+        // The investigator stays on the same location when it's not a player turn
         ! t [Time] l [location] : Location(Next(t)) = l <- Location(t) = l & GameState(t) ~= player_turn .
         
     }
+    
+    // Move_To can only be true if it's a player turn.
     ! t [Time] l [location] : Move_To(t,l) => GameState(t) = player_turn.
-    // The investigator has a location to move to
+    // The investigator has a location to move to if it's a player turn
     ! t [Time] : GameState(t) = player_turn => ? l [location] : Move_To(t,l). 
     // The investigator cannot move to a location with 3 monsters
     ! t [Time] l [location] : Move_To(t,l) => Is_Connected(Location(t),l) & Monsters_In(t,l) < 3.
-    // The investigator only moves to a single location every (player) turn
+    // The investigator only moves to a single location
     ! t [Time] l1 [location] l2 [location] : Move_To(t,l1) & Move_To(t,l2) => l1 = l2 .
 
+    
+    
     // CLUE STUFF
     {
         // The investigator has no clues at the beginning of the game
         Clues(Start) = 0.
     	
         // If the investigator attacks, he gains clues in t+1 equal to the monsters killed capped at 10        
-		! t [Time] : Clues(Next(t)) = 10 <- ? l [location] : Attack(t) & Clues(t) + Monsters_In(t,l) > 10 & Location(t) = l & ~ Close_Gate(t).
-        ! t [Time] l [location] : Clues(Next(t)) = Clues(t) + Monsters_In(t,l) <- Attack(t) & Clues(t) + Monsters_In(t,l) =< 10 & Location(t) = l & ~ Close_Gate(t).
+		! t [Time] : Clues(Next(t)) = 10 <- ? l [location] : Attack(t) & Clues(t) + Monsters_In(t,l) > 10 & Location(t) = l.
+        ! t [Time] l [location] : Clues(Next(t)) = Clues(t) + Monsters_In(t,l) <- Attack(t) & Clues(t) + Monsters_In(t,l) =< 10 & Location(t) = l.
+        
+        // If the investigator does not attack or close a gate, the amount of clues stays the same.
         ! t [Time] : Clues(Next(t)) = Clues(t) <- ~Attack(t) & ~Close_Gate(t) .
 	    
         // If the investigator closes a gate, he will lose 2 clues
 		! t [Time] : Clues(Next(t)) = Clues(t) - 2 <- Close_Gate(t) .
     }
-	! t [Time] : Clues(t) =< 10 .
     
     
-    // GATE STUFF
+    
+    // GATE STUFF AND INVESTIGATOR ACTIONS
     {
        
         // A gate is open if there was a cause for it to open in the previous turn, or if it was already open.
@@ -97,21 +104,18 @@ theory T : Arkham {
         ! t [Time] b [building] : Closed_Gate(Next(t),b) <- ((Close_Gate(t) &  Location(t) = b & Open_Gate(t,b)) | Closed_Gate(t,b)) & ~ C_Open_Gate(t,b).
          
     }
+    
     // A gate can't be closed and open at the same time.
     ! t [Time] b [building] : Open_Gate(t,b) => ~ Closed_Gate(t,b).
-    // Redundant?
-    ! t [Time] b [building] : Close_Gate(t) & Location(t) = b & ~ C_Open_Gate(t,b) => ~ Open_Gate(Next(t),b).
     // An investigator can only cause a gate to close if present in a location with an open gate and at least 2 clues
     ! t [Time]: ? b [building] : Close_Gate(t) => Location(t) = b & Open_Gate(t,b) & Clues(t) >= 2.  
-    // An investigator must cause a gate to close if present in a location with an open gate and at least 2 clues
-//    ! t [Time] b [building] : Location(t) = b & Open_Gate(t,b) & Clues(t) >= 2 => Close_Gate(t).
-    // An investigator must attack the monsters if he is at a location with no open gate but with monsters
-//    ! t [Time] l [location] : Location(t) = l & (~ Open_Gate(t,l) | Clues(t) < 2) & Monsters_In(t,l) > 0 => Attack(t).
-    // An investigator can only do one action per (player) turn
+    // An investigator can only do one action per (player) turn or do nothing.
     ! t [Time] : GameState(t) = player_turn => (Attack(t) | Close_Gate(t) | (~Attack(t) & ~Close_Gate(t))) & ~(Attack(t) & Close_Gate(t)) .
+    // An Attack or Close Gate can only happen during a player turn.
     ! t [Time] : Attack(t) | Close_Gate(t) => GameState(t) = player_turn .
     // An investigator can only attack if there are monsters at his location.
     ! t [Time] : Attack(t) => ? l [location] : Location(t) = l & Monsters_In(t,l) > 0 .
+    
     
     
     // MONSTER STUFF
@@ -137,7 +141,7 @@ theory T : Arkham {
     	! t [Time] l [location] : Monsters_In(Next(t),l) = 0 <- Attack(t) & Location(t) = l .
         
         // If the investigator does not attack or attacks in a different location, monsters in the current location stays the same.
-        ! t [Time] l [location] : Monsters_In(Next(t),l) = Monsters_In(t,l) <- GameState(t) = player_turn & (~ Attack(t) | Attack(t) & Location(t) ~= l).
+        ! t [Time] l [location] : Monsters_In(Next(t),l) = Monsters_In(t,l) <- GameState(t) = player_turn & (~ Attack(t) | (Attack(t) & Location(t) ~= l)).
         
         // If the investigator has won or lost, monster amount stays the same.
         ! t [Time] l [location] : Monsters_In(Next(t),l) = Monsters_In(t,l) <- GameState(t) = won | GameState(t) = lost.
@@ -153,19 +157,24 @@ theory T : Arkham {
     ! t [Time] l [location] d [district] : Monster_Move(t,l,d) > 0 => GameState(t) = monster_turn & Is_Connected(l,d).
     ! t [Time] l [location] d [district] : GameState(t) = player_turn => Monster_Move(t,l,d) = 0 .
     
+    
+    
     // WIN/LOSE CONDITIONS
     {
         
         // Win is caused by the amount of closed gates at t + 1 being higher or equal to the amount required
-       ! t [Time] : C_Win(t) <- #{ b [building] : Closed_Gate(t, b)} + #{ : Close_Gate(t) } - #{ b [building] : C_Open_Gate(t, b) } >= Closed_To_Win .
-        // Lose is caused by the amount of open gates at t + 1 being higher or equal to the amount required
-       ! t [Time] : C_Lose(t) <- #{ b [building] : Open_Gate(t, b)} + #{ b [building] : C_Open_Gate(t, b) } - #{ : Close_Gate(t) } >= Open_To_Lose .
+       ! t [Time] : C_Win(t) <- #{ b [building] : Closed_Gate(t, b)} + #{ : Close_Gate(t) } - #{ b [building] : C_Open_Gate(t, b)  & Closed_Gate(t,b) } >= Closed_To_Win .
+        // Lose is caused by the amount of open gates at t + 1 being higher or equal to the amount required 
+       ! t [Time] : C_Lose(t) <- #{ b [building] : Open_Gate(t, b)} + #{ b [building] : C_Open_Gate(t, b) &  ~ Open_Gate(t,b) } - #{ : Close_Gate(t) } >= Open_To_Lose .
         // Lose is caused by not being able to move at player_turn
        ! t [Time] : C_Lose(t) <- GameState(t) = monster_turn & ? l : Location(t) = l & (! l2 : Is_Connected(l,l2) => sum{ d2 [location], amount [monsternb] : Monster_Move(t,d2,l2) = amount: amount} >= 3).
     }
     
+    
+    
     // STATE CHANGES
     {
+        // The game starts with a player turn.
          GameState(Start) = player_turn.
         // If the game is won, it stays that way.
          ! t [Time] : GameState(Next(t)) = won <- GameState(t) = won | C_Win(t).
@@ -177,16 +186,16 @@ theory T : Arkham {
     	 ! t [Time] : GameState(Next(t)) = monster_turn <- GameState(t) = player_turn & ~ C_Win(t) & ~ C_Lose(t).
     }
     
+    
+    
     // SYMMETRIC CONNECTIONS & REACHABLE
     {
+        // Symmetric connection
         ! l1 [location] l2 [location] : Is_Connected(l1,l2) <- Has_Connection(l1,l2) | Has_Connection(l2,l1).
         // Location l2 is reachable from location l if l2 is connected to l or there is a location l3 connected to l within reach of l2
         ! l [location] l2 [location] : Reachable(l,l2) <- (Is_Connected(l,l2) & l ~= l2) | (? l3 [location] : Is_Connected(l,l3) & Reachable(l3,l2)) .
     }
-    
-    // Testicles
-//	? t [Time] : GameState(t) = won.
-//    GameState(1) ~= lost.
+
 }
 
 theory TimeTheo : Arkham{
@@ -197,11 +206,8 @@ theory TimeTheo : Arkham{
 }
 
 procedure main() {
-    //check()
-    //show(Unplayable)
-    verification4proc(reduceVoc(BoxedIn))
-
-    //verification5proc(reduceVoc(Harder))
+    check()
+    allVerifications()
 }
 
 
