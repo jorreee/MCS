@@ -199,7 +199,9 @@ theory TimeTheo : Arkham{
 procedure main() {
     //check()
     //show(Unplayable)
-    verification5proc(reduceVoc(Harder))
+    verification4proc(reduceVoc(BoxedIn))
+
+    //verification5proc(reduceVoc(Harder))
 }
 
 
@@ -287,9 +289,76 @@ procedure verification3proc(struc){
 	end
 }
 
+// Turn x still not lost
+theory verification4_1 : Arkham {    ? t [Time] : GameState(t) ~= lost & t = 1 . }
+theory verification4_2 : Arkham {    ? t [Time] : GameState(t) ~= lost & t = 2 . }
+theory verification4_3 : Arkham {    ? t [Time] : GameState(t) ~= lost & t = 3 . }
+theory verification4_4 : Arkham {    ? t [Time] : GameState(t) ~= lost & t = 4 . }
+theory verification4_5 : Arkham {    ? t [Time] : GameState(t) ~= lost & t = 5 . }
+theory verification4_6 : Arkham {    ? t [Time] : GameState(t) ~= lost & t = 6 . }
+theory verification4_7 : Arkham {    ? t [Time] : GameState(t) ~= lost & t = 7 . }
+theory verification4_8 : Arkham {    ? t [Time] : GameState(t) ~= lost & t = 8 . }
+theory verification4_9 : Arkham {    ? t [Time] : GameState(t) ~= lost & t = 9 . }
+theory verification4_10 : Arkham {    ? t [Time] : GameState(t) ~= lost & t = 10 . }
+theory verification4_11 : Arkham {    ? t [Time] : GameState(t) ~= lost & t = 11 . }
+theory verification4_12 : Arkham {    ? t [Time] : GameState(t) ~= lost & t = 12 . }
+theory verification4_13 : Arkham {    ? t [Time] : GameState(t) ~= lost & t = 13 . }
+theory verification4_14 : Arkham {    ? t [Time] : GameState(t) ~= lost & t = 14 . }
+theory verification4_15 : Arkham {    ? t [Time] : GameState(t) ~= lost & t = 15 . }
+theory verification4_16 : Arkham {    ? t [Time] : GameState(t) ~= lost & t = 16 . }
+theory verification4_17 : Arkham {    ? t [Time] : GameState(t) ~= lost & t = 17 . }
+theory verification4_18 : Arkham {    ? t [Time] : GameState(t) ~= lost & t = 18 . }
+theory verification4_19 : Arkham {    ? t [Time] : GameState(t) ~= lost & t = 19 . }
+theory verification4_20 : Arkham {    ? t [Time] : GameState(t) ~= lost & t = 20 . }
 
-procedure verification4proc(struc){ // TODO
+procedure verification4proc(struc){
 	// Test number of gameturn before lost
+    print(">>>started verification 4...")
+    
+    verification4 = {
+        verification4_1,
+        verification4_2,
+        verification4_3,
+        verification4_4,
+        verification4_5,
+        verification4_6,
+        verification4_7,
+        verification4_8,
+        verification4_9,
+        verification4_10,
+        verification4_11,
+        verification4_12,
+        verification4_13,
+        verification4_14,
+        verification4_15,
+        verification4_16,
+        verification4_17,
+        verification4_18,
+        verification4_19,
+        verification4_20,
+    }
+    
+    stdoptions.nbmodels = 1
+    local turnNb = 1
+    T4 = merge(T, verification4[turnNb])
+    
+    S = calculatedefinitions(merge(TimeTheo, T4), struc)
+    S = propagate(T4,S)
+	local sols = modelexpand(T4, S)
+    
+    while #sols > 0 do
+    	print(">>>verification 4 passed turn "..turnNb)
+        turnNb = turnNb + 1
+        
+        T4 = merge(T, verification4[turnNb])
+    
+    	S = calculatedefinitions(merge(TimeTheo, T4), struc)
+    	S = propagate(T4,S)
+		sols = modelexpand(T4, S)
+    end
+    
+    turnNb = turnNb - 1
+    print(">>>verification 4 result: The investigator can survive for "..turnNb.." turns")
 }
 
 theory verification5win: Arkham{
