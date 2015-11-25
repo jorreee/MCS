@@ -1,6 +1,11 @@
 # idp shit #
 *.tidp
 
+# eventB shit #
+eventB/.metadata/
+eventB/Test/
+eventB/Arkham/.project
+
 # LaTeX #
 *.log
 *.aux
