@@ -1,11 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
-<org.eventb.core.event name="'" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION"/>
-<org.eventb.core.event name="evt1" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="end_game"/>
-<org.eventb.core.event name="evt3" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="game_over"/>
+<org.eventb.core.event name="'" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
+<org.eventb.core.action name="'" org.eventb.core.assignment="game_over ≔ FALSE" org.eventb.core.label="init_game_over"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="open_gates ≔ ∅" org.eventb.core.label="init_open_gates"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="closed_gates ≔ ∅" org.eventb.core.label="init_closed_gates"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evt1" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="end_game">
+<org.eventb.core.guard name="'" org.eventb.core.label="win_lose_condition" org.eventb.core.predicate="⊤"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="game_over ≔ TRUE" org.eventb.core.label="end_game"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="no_end_game" org.eventb.core.predicate="game_over = FALSE"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evt3" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="game_over">
+<org.eventb.core.guard name="'" org.eventb.core.label="end_game" org.eventb.core.predicate="game_over = TRUE"/>
+</org.eventb.core.event>
 <org.eventb.core.variable name="evt4" org.eventb.core.identifier="game_over"/>
 <org.eventb.core.event name="evt5" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="open_gate">
 <org.eventb.core.parameter name="'" org.eventb.core.identifier="building"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="building_type" org.eventb.core.predicate="building ∈ buildings"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="no_open_gate" org.eventb.core.predicate="building ∉ open_gates"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="no_game_over" org.eventb.core.predicate="game_over = FALSE"/>
+<org.eventb.core.action name="+" org.eventb.core.assignment="open_gates ≔ open_gates ∪ {building}" org.eventb.core.label="open_gate"/>
+<org.eventb.core.action name="," org.eventb.core.assignment="closed_gates ≔ closed_gates ∖ {building}" org.eventb.core.label="no_close_gate"/>
 </org.eventb.core.event>
 <org.eventb.core.seesContext name="evt6" org.eventb.core.target="Arkham"/>
 <org.eventb.core.variable name="evt7" org.eventb.core.identifier="open_gates"/>
@@ -17,5 +32,11 @@
 <org.eventb.core.invariant name="evt@" org.eventb.core.label="finite_closed" org.eventb.core.predicate="finite(closed_gates)" org.eventb.core.theorem="true"/>
 <org.eventb.core.event name="evt&gt;" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="close_gate">
 <org.eventb.core.parameter name="(" org.eventb.core.identifier="building"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="building_type" org.eventb.core.predicate="building ∈ buildings"/>
+<org.eventb.core.guard name="+" org.eventb.core.label="open_gate" org.eventb.core.predicate="building ∈ open_gates"/>
+<org.eventb.core.guard name="," org.eventb.core.label="no_game_over" org.eventb.core.predicate="game_over = FALSE"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="no_closed_gate" org.eventb.core.predicate="building ∉ closed_gates"/>
+<org.eventb.core.action name="-" org.eventb.core.assignment="closed_gates ≔ closed_gates ∪ {building}" org.eventb.core.label="close_gate"/>
+<org.eventb.core.action name="." org.eventb.core.assignment="open_gates ≔ open_gates ∖ {building}" org.eventb.core.label="no_open_gate"/>
 </org.eventb.core.event>
 </org.eventb.core.machineFile>
