@@ -1,25 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.psFile>
-<org.eventb.core.psStatus name="INITIALISATION/game_over_linking/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="14" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="INITIALISATION/monsters_type/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="14" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="INITIALISATION/monster_locations_type/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="14" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="INITIALISATION/init_open_gates/SIM" org.eventb.core.confidence="1000" org.eventb.core.poStamp="14" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="monsters_move/locations_connected/WD" org.eventb.core.confidence="0" org.eventb.core.poStamp="26" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="monsters_move/monster_locations_type/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="26" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="lose_game/game_over_linking/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="7" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="lose_game/no_end_game/GRD" org.eventb.core.confidence="-99" org.eventb.core.poStamp="11" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="win_game/game_over_linking/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="7" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="win_game/no_end_game/GRD" org.eventb.core.confidence="-99" org.eventb.core.poStamp="11" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="game_over/end_game/GRD" org.eventb.core.confidence="0" org.eventb.core.poStamp="7" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="open_gate/building_type/GRD" org.eventb.core.confidence="0" org.eventb.core.poStamp="11" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="open_gate/no_open_gate/GRD" org.eventb.core.confidence="0" org.eventb.core.poStamp="11" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="open_gate/no_game_over/GRD" org.eventb.core.confidence="-99" org.eventb.core.poStamp="11" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="open_gate/open_gate/SIM" org.eventb.core.confidence="-99" org.eventb.core.poStamp="11" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="open_gate/no_close_gate/SIM" org.eventb.core.confidence="-99" org.eventb.core.poStamp="11" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="close_gate/building_type/GRD" org.eventb.core.confidence="-99" org.eventb.core.poStamp="11" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="close_gate/open_gate/GRD" org.eventb.core.confidence="-99" org.eventb.core.poStamp="11" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="close_gate/no_game_over/GRD" org.eventb.core.confidence="0" org.eventb.core.poStamp="11" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="close_gate/no_closed_gate/GRD" org.eventb.core.confidence="0" org.eventb.core.poStamp="11" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="close_gate/close_gate/SIM" org.eventb.core.confidence="-99" org.eventb.core.poStamp="11" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="close_gate/no_open_gate/SIM" org.eventb.core.confidence="-99" org.eventb.core.poStamp="11" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/game_over_linking/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="72" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/monsters_type/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="72" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/monster_locations_type/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="72" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/init_open_gates/SIM" org.eventb.core.confidence="1000" org.eventb.core.poStamp="72" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="monsters_move/locations_connected/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="75" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="monsters_move/monster_locations_type/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="75" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="add_monster/no_monster_yet/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="74" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="add_monster/monsters_type/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="74" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="add_monster/monster_locations_type/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="74" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="attack/monsters_type/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="72" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="attack/monster_locations_type/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="72" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="attack/attack/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="72" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="next_turn/no_win/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="72" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="next_turn/no_lose/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="72" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="next_turn/game_over_linking/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="72" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="next_turn/next_turn/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="72" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="lose_game/loss_condition/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="72" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="lose_game/game_over_linking/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="72" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="lose_game/no_end_game/GRD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="72" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="win_game/win_condition/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="72" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="win_game/game_over_linking/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="72" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="win_game/no_end_game/GRD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="72" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="game_over/end_game/GRD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="72" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="open_gate/building_type/GRD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="72" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="open_gate/no_open_gate/GRD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="72" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="open_gate/no_game_over/GRD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="72" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="close_gate/building_type/GRD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="72" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="close_gate/no_game_over/GRD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="72" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="close_gate/no_closed_gate/GRD" org.eventb.core.confidence="0" org.eventb.core.poStamp="72" org.eventb.core.psManual="false"/>
 </org.eventb.core.psFile>
