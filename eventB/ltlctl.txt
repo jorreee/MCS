@@ -1,0 +1,23 @@
+LTL(a) & CTL(b):
+1b: AG ({state = player_turn} => EF {state = won})
+
+2a: G ({state = lost} => G X {state = lost})
+2b: AG ({state = lost} => AG AX {state = lost}) 
+
+3b: EG (not {state = lost} & not {state = won})
+
+4a: G (({state = player_turn} or {state = monster_turn}) W ({card(open_gates) >= open_to_lose} or {card(closed_gates) >= closed_to_win}))  
+
+5a: G (not ({card(open_gates) >= open_to_lose} & {card(closed_gates) >= closed_to_win}))
+5b: AG (not ({card(open_gates) >= open_to_lose} & {card(closed_gates) >= closed_to_win}))
+
+6a: G ({state = monster_turn} & {turn_end = FALSE} => X {state = monster_turn}) & G ({state = player_turn} & {turn_end = FALSE} => X {state = player_turn}) & G(not ({state = lost} & {state = won})) 
+6b: AG ({state = monster_turn} & {turn_end = FALSE} => AX {state = monster_turn}) & AG ({state = player_turn} & {turn_end = FALSE} => AX {state = player_turn}) & AG(not ({state = lost} & {state = won}))
+
+7a: G ({state = won} & {card(closed_gates) >= card(open_gates)} or not {state = won})
+7b: AG ({state = won} & {card(closed_gates) >= card(open_gates)} or not {state = won})  
+
+8a: G ({card(monsters) = 1} => {card(monsters) = 1} W [attack]) 
+
+9a: G ({state = won} & {card(closed_gates) >= 2} or not {state = won})
+9b: AG ({state = won} & {card(closed_gates) >= 2} or not {state = won})

@@ -69,22 +69,24 @@
 <org.eventb.core.guard name="+" org.eventb.core.label="loss_condition" org.eventb.core.predicate="card(open_gates) ≥ open_to_lose"/>
 <org.eventb.core.guard name="," org.eventb.core.label="not_already_over" org.eventb.core.predicate="state ∉ over"/>
 <org.eventb.core.action name="-" org.eventb.core.assignment="state ≔ lost" org.eventb.core.label="lose"/>
+<org.eventb.core.guard name="." org.eventb.core.label="turn_done" org.eventb.core.predicate="turn_end = TRUE"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="evt1" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="win_game">
 <org.eventb.core.refinesEvent name="*" org.eventb.core.target="end_game"/>
 <org.eventb.core.guard name="+" org.eventb.core.label="win_condition" org.eventb.core.predicate="card(closed_gates) ≥ closed_to_win"/>
 <org.eventb.core.guard name="," org.eventb.core.label="not_already_over" org.eventb.core.predicate="state ∉ over"/>
 <org.eventb.core.action name="-" org.eventb.core.assignment="state ≔ won" org.eventb.core.label="win"/>
+<org.eventb.core.guard name="." org.eventb.core.label="turn_done" org.eventb.core.predicate="turn_end = TRUE"/>
 </org.eventb.core.event>
 <org.eventb.core.variable name="evt2" org.eventb.core.identifier="monster_locations"/>
 <org.eventb.core.invariant name="evt6" org.eventb.core.label="monsters_type" org.eventb.core.predicate="monsters ⊆ monster_pool"/>
 <org.eventb.core.invariant name="evt4" org.eventb.core.label="monster_locations_type" org.eventb.core.predicate="monster_locations ∈ monsters → locations"/>
 <org.eventb.core.variable name="evt5" org.eventb.core.identifier="monsters"/>
 <org.eventb.core.seesContext name="evtG" org.eventb.core.target="Arkham"/>
-<org.eventb.core.seesContext name="evt:" org.eventb.core.target="Monsters"/>
+<org.eventb.core.seesContext name="evt:" org.eventb.core.target="Monsters_For_LTL_CTL"/>
 <org.eventb.core.event name="evt;" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="game_over">
 <org.eventb.core.refinesEvent name="(" org.eventb.core.target="game_over"/>
-<org.eventb.core.guard name=")" org.eventb.core.label="game_over" org.eventb.core.predicate="state ∈ over"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="&#9;game_ove" org.eventb.core.predicate="state ∈ over"/>
 </org.eventb.core.event>
 <org.eventb.core.refinesMachine name="evt=" org.eventb.core.target="Saving_Arkham_0"/>
 <org.eventb.core.variable name="evt?" org.eventb.core.identifier="open_gates"/>
