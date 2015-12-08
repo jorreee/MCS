@@ -2359,4 +2359,225 @@
 <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.finiteSet:0"/>
 <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
 </org.eventb.core.prProof>
+<org.eventb.core.prProof name="end_game/win_lose_condition/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="locations">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(locations,{Rivertown},{Easttown},{Downtown},{Merchant_District},{Shop},{Library},{Bank},{Station}))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(states,{player_turn},{monster_turn},{won},{lost}))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p33" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p34,p35,p36,p37,p38,p39,p40"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p34,p35,p36,p37,p38,p39,p40"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p41">
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p41" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p44">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p42" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p43"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p44" org.eventb.core.prHyps=""/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="closed_gates" org.eventb.core.type="ℙ(locations)"/>
+<org.eventb.core.prIdent name="closed_to_win" org.eventb.core.type="ℤ"/>
+<org.eventb.core.prIdent name="open_gates" org.eventb.core.type="ℙ(locations)"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="¬Rivertown=Station">
+<org.eventb.core.prIdent name="Rivertown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Station" org.eventb.core.type="locations"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p41" org.eventb.core.predicate="⊤∧(card(closed_gates)≥closed_to_win∨⊤)"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬Rivertown=Easttown">
+<org.eventb.core.prIdent name="Easttown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Rivertown" org.eventb.core.type="locations"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p24" org.eventb.core.predicate="¬Merchant_District=Library">
+<org.eventb.core.prIdent name="Library" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Merchant_District" org.eventb.core.type="locations"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p40" org.eventb.core.predicate="¬won=lost">
+<org.eventb.core.prIdent name="lost" org.eventb.core.type="states"/>
+<org.eventb.core.prIdent name="states" org.eventb.core.type="ℙ(states)"/>
+<org.eventb.core.prIdent name="won" org.eventb.core.type="states"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="¬Rivertown=Bank">
+<org.eventb.core.prIdent name="Bank" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Rivertown" org.eventb.core.type="locations"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="¬Downtown=Library">
+<org.eventb.core.prIdent name="Downtown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Library" org.eventb.core.type="locations"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p35" org.eventb.core.predicate="¬player_turn=monster_turn">
+<org.eventb.core.prIdent name="monster_turn" org.eventb.core.type="states"/>
+<org.eventb.core.prIdent name="player_turn" org.eventb.core.type="states"/>
+<org.eventb.core.prIdent name="states" org.eventb.core.type="ℙ(states)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="¬Easttown=Shop">
+<org.eventb.core.prIdent name="Easttown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Shop" org.eventb.core.type="locations"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p22" org.eventb.core.predicate="¬Downtown=Station">
+<org.eventb.core.prIdent name="Downtown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Station" org.eventb.core.type="locations"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="¬Easttown=Merchant_District">
+<org.eventb.core.prIdent name="Easttown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Merchant_District" org.eventb.core.type="locations"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="¬Rivertown=Library">
+<org.eventb.core.prIdent name="Library" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Rivertown" org.eventb.core.type="locations"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="¬Easttown=Bank">
+<org.eventb.core.prIdent name="Bank" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Easttown" org.eventb.core.type="locations"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p36" org.eventb.core.predicate="¬player_turn=won">
+<org.eventb.core.prIdent name="player_turn" org.eventb.core.type="states"/>
+<org.eventb.core.prIdent name="states" org.eventb.core.type="ℙ(states)"/>
+<org.eventb.core.prIdent name="won" org.eventb.core.type="states"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p26" org.eventb.core.predicate="¬Merchant_District=Station">
+<org.eventb.core.prIdent name="Merchant_District" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Station" org.eventb.core.type="locations"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="finite(closed_gates)"/>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="¬Easttown=Library">
+<org.eventb.core.prIdent name="Easttown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Library" org.eventb.core.type="locations"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p32" org.eventb.core.predicate="¬Bank=Station">
+<org.eventb.core.prIdent name="Bank" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Station" org.eventb.core.type="locations"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p43" org.eventb.core.predicate="locations=(∅ ⦂ ℙ(locations))∨districts=(∅ ⦂ ℙ(locations))∨(finite(locations)∧finite(districts))">
+<org.eventb.core.prIdent name="districts" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p29" org.eventb.core.predicate="¬Shop=Station">
+<org.eventb.core.prIdent name="Shop" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Station" org.eventb.core.type="locations"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p33" org.eventb.core.predicate="partition(states,{player_turn},{monster_turn},{won},{lost})">
+<org.eventb.core.prIdent name="lost" org.eventb.core.type="states"/>
+<org.eventb.core.prIdent name="monster_turn" org.eventb.core.type="states"/>
+<org.eventb.core.prIdent name="player_turn" org.eventb.core.type="states"/>
+<org.eventb.core.prIdent name="states" org.eventb.core.type="ℙ(states)"/>
+<org.eventb.core.prIdent name="won" org.eventb.core.type="states"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p44" org.eventb.core.predicate="⊤"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="¬Rivertown=Downtown">
+<org.eventb.core.prIdent name="Downtown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Rivertown" org.eventb.core.type="locations"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p30" org.eventb.core.predicate="¬Library=Bank">
+<org.eventb.core.prIdent name="Bank" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Library" org.eventb.core.type="locations"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="finite(closed_gates)∧(card(closed_gates)≥closed_to_win∨finite(open_gates))"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="locations={Rivertown,Easttown,Downtown,Merchant_District,Shop,Library,Bank,Station}">
+<org.eventb.core.prIdent name="Bank" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Downtown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Easttown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Library" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Merchant_District" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Rivertown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Shop" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Station" org.eventb.core.type="locations"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="¬Downtown=Merchant_District">
+<org.eventb.core.prIdent name="Downtown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Merchant_District" org.eventb.core.type="locations"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="¬Rivertown=Shop">
+<org.eventb.core.prIdent name="Rivertown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Shop" org.eventb.core.type="locations"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="¬Easttown=Station">
+<org.eventb.core.prIdent name="Easttown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Station" org.eventb.core.type="locations"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="¬Downtown=Shop">
+<org.eventb.core.prIdent name="Downtown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Shop" org.eventb.core.type="locations"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p31" org.eventb.core.predicate="¬Library=Station">
+<org.eventb.core.prIdent name="Library" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Station" org.eventb.core.type="locations"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="¬Rivertown=Merchant_District">
+<org.eventb.core.prIdent name="Merchant_District" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Rivertown" org.eventb.core.type="locations"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p21" org.eventb.core.predicate="¬Downtown=Bank">
+<org.eventb.core.prIdent name="Bank" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Downtown" org.eventb.core.type="locations"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p38" org.eventb.core.predicate="¬monster_turn=won">
+<org.eventb.core.prIdent name="monster_turn" org.eventb.core.type="states"/>
+<org.eventb.core.prIdent name="states" org.eventb.core.type="ℙ(states)"/>
+<org.eventb.core.prIdent name="won" org.eventb.core.type="states"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p42" org.eventb.core.predicate="finite(locations × districts)">
+<org.eventb.core.prIdent name="districts" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p25" org.eventb.core.predicate="¬Merchant_District=Bank">
+<org.eventb.core.prIdent name="Bank" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Merchant_District" org.eventb.core.type="locations"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p23" org.eventb.core.predicate="¬Merchant_District=Shop">
+<org.eventb.core.prIdent name="Merchant_District" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Shop" org.eventb.core.type="locations"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p27" org.eventb.core.predicate="¬Shop=Library">
+<org.eventb.core.prIdent name="Library" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Shop" org.eventb.core.type="locations"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p34" org.eventb.core.predicate="states={player_turn,monster_turn,won,lost}">
+<org.eventb.core.prIdent name="lost" org.eventb.core.type="states"/>
+<org.eventb.core.prIdent name="monster_turn" org.eventb.core.type="states"/>
+<org.eventb.core.prIdent name="player_turn" org.eventb.core.type="states"/>
+<org.eventb.core.prIdent name="states" org.eventb.core.type="ℙ(states)"/>
+<org.eventb.core.prIdent name="won" org.eventb.core.type="states"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="finite(open_gates)"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="¬Easttown=Downtown">
+<org.eventb.core.prIdent name="Downtown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Easttown" org.eventb.core.type="locations"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p37" org.eventb.core.predicate="¬player_turn=lost">
+<org.eventb.core.prIdent name="lost" org.eventb.core.type="states"/>
+<org.eventb.core.prIdent name="player_turn" org.eventb.core.type="states"/>
+<org.eventb.core.prIdent name="states" org.eventb.core.type="ℙ(states)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition(locations,{Rivertown},{Easttown},{Downtown},{Merchant_District},{Shop},{Library},{Bank},{Station})">
+<org.eventb.core.prIdent name="Bank" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Downtown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Easttown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Library" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Merchant_District" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Rivertown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Shop" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Station" org.eventb.core.type="locations"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p28" org.eventb.core.predicate="¬Shop=Bank">
+<org.eventb.core.prIdent name="Bank" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Shop" org.eventb.core.type="locations"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p39" org.eventb.core.predicate="¬monster_turn=lost">
+<org.eventb.core.prIdent name="lost" org.eventb.core.type="states"/>
+<org.eventb.core.prIdent name="monster_turn" org.eventb.core.type="states"/>
+<org.eventb.core.prIdent name="states" org.eventb.core.type="ℙ(states)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
+</org.eventb.core.prProof>
 </org.eventb.core.prFile>

@@ -6,7 +6,7 @@
 <org.eventb.core.action name=")" org.eventb.core.assignment="closed_gates ≔ ∅" org.eventb.core.label="init_closed_gates"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="evt1" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="end_game">
-<org.eventb.core.guard name="'" org.eventb.core.label="win_lose_condition" org.eventb.core.predicate="⊤"/>
+<org.eventb.core.guard name="'" org.eventb.core.label="win_lose_condition" org.eventb.core.predicate="card(closed_gates) ≥ closed_to_win ∨ card(open_gates) ≥ open_to_lose"/>
 <org.eventb.core.action name="(" org.eventb.core.assignment="game_over ≔ TRUE" org.eventb.core.label="end_game"/>
 <org.eventb.core.guard name=")" org.eventb.core.label="no_end_game" org.eventb.core.predicate="game_over = FALSE"/>
 </org.eventb.core.event>
@@ -39,4 +39,5 @@
 <org.eventb.core.action name="-" org.eventb.core.assignment="closed_gates ≔ closed_gates ∪ {building}" org.eventb.core.label="close_gate"/>
 <org.eventb.core.action name="." org.eventb.core.assignment="open_gates ≔ open_gates ∖ {building}" org.eventb.core.label="no_open_gate"/>
 </org.eventb.core.event>
+<org.eventb.core.seesContext name="evtA" org.eventb.core.target="GameStates"/>
 </org.eventb.core.machineFile>

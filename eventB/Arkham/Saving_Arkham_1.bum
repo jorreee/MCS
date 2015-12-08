@@ -54,6 +54,7 @@
 <org.eventb.core.action name="*" org.eventb.core.assignment="acted ≔ TRUE" org.eventb.core.label="acted"/>
 <org.eventb.core.action name="," org.eventb.core.assignment="monster_locations ≔ monster_locations ∖ {monster ↦ p_location ∣ monster ∈ monsters ∧ p_location = location}" org.eventb.core.label="remove_monster_locations"/>
 <org.eventb.core.action name="+" org.eventb.core.assignment="monsters ≔ monsters ∖ {monster ∣ monster ∈ monsters ⇒ monster_locations(monster) = location}" org.eventb.core.label="attack"/>
+<org.eventb.core.guard name="-" org.eventb.core.label="monster_present" org.eventb.core.predicate="∃ monster · monster ∈ monsters ∧ monster_locations(monster) = location"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="1" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="next_turn">
 <org.eventb.core.guard name="'" org.eventb.core.label="turn_done" org.eventb.core.predicate="turn_end = TRUE"/>
