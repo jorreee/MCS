@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+<org.eventb.core.constant name="'" org.eventb.core.identifier="player_act_phase"/>
+<org.eventb.core.constant name="(" org.eventb.core.identifier="player_movement_phase"/>
+<org.eventb.core.constant name=")" org.eventb.core.identifier="player_end_phase"/>
+<org.eventb.core.constant name="*" org.eventb.core.identifier="monster_act_phase"/>
+<org.eventb.core.constant name="+" org.eventb.core.identifier="monster_add_phase"/>
+<org.eventb.core.constant name="," org.eventb.core.identifier="monster_movement_phase"/>
+<org.eventb.core.constant name="-" org.eventb.core.identifier="monster_end_phase"/>
+<org.eventb.core.axiom name="." org.eventb.core.label="phases_partition" org.eventb.core.predicate="partition(phases, {player_act_phase}, {player_movement_phase}, {player_end_phase},&#10;{monster_act_phase}, {monster_add_phase}, {monster_movement_phase},&#10;{monster_end_phase})"/>
+<org.eventb.core.carrierSet name="/" org.eventb.core.identifier="phases"/>
+<org.eventb.core.axiom name="0" org.eventb.core.label="next_phase" org.eventb.core.predicate="next_phase = {player_end_phase ↦ monster_act_phase,&#10;monster_end_phase ↦ player_act_phase, player_act_phase ↦ player_movement_phase,&#10;player_movement_phase ↦ player_end_phase, monster_act_phase ↦ monster_add_phase,&#10;monster_add_phase ↦ monster_movement_phase, monster_movement_phase ↦ monster_end_phase} "/>
+<org.eventb.core.constant name="1" org.eventb.core.identifier="next_phase"/>
+</org.eventb.core.contextFile>

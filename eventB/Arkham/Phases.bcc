@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.scContextFile org.eventb.core.accurate="true" org.eventb.core.configuration="org.eventb.core.fwd">
+<org.eventb.core.scAxiom name="'" org.eventb.core.label="phases_partition" org.eventb.core.predicate="partition(phases,{player_act_phase},{player_movement_phase},{player_end_phase},{monster_act_phase},{monster_add_phase},{monster_movement_phase},{monster_end_phase})" org.eventb.core.source="/Arkham/Phases.buc|org.eventb.core.contextFile#Phases|org.eventb.core.axiom#." org.eventb.core.theorem="false"/>
+<org.eventb.core.scAxiom name="(" org.eventb.core.label="next_phase" org.eventb.core.predicate="next_phase={player_end_phase ↦ monster_act_phase,monster_end_phase ↦ player_act_phase,player_act_phase ↦ player_movement_phase,player_movement_phase ↦ player_end_phase,monster_act_phase ↦ monster_add_phase,monster_add_phase ↦ monster_movement_phase,monster_movement_phase ↦ monster_end_phase}" org.eventb.core.source="/Arkham/Phases.buc|org.eventb.core.contextFile#Phases|org.eventb.core.axiom#0" org.eventb.core.theorem="false"/>
+<org.eventb.core.scConstant name="monster_act_phase" org.eventb.core.source="/Arkham/Phases.buc|org.eventb.core.contextFile#Phases|org.eventb.core.constant#*" org.eventb.core.type="phases"/>
+<org.eventb.core.scConstant name="monster_add_phase" org.eventb.core.source="/Arkham/Phases.buc|org.eventb.core.contextFile#Phases|org.eventb.core.constant#+" org.eventb.core.type="phases"/>
+<org.eventb.core.scConstant name="monster_end_phase" org.eventb.core.source="/Arkham/Phases.buc|org.eventb.core.contextFile#Phases|org.eventb.core.constant#-" org.eventb.core.type="phases"/>
+<org.eventb.core.scConstant name="monster_movement_phase" org.eventb.core.source="/Arkham/Phases.buc|org.eventb.core.contextFile#Phases|org.eventb.core.constant#," org.eventb.core.type="phases"/>
+<org.eventb.core.scConstant name="next_phase" org.eventb.core.source="/Arkham/Phases.buc|org.eventb.core.contextFile#Phases|org.eventb.core.constant#1" org.eventb.core.type="ℙ(phases×phases)"/>
+<org.eventb.core.scCarrierSet name="phases" org.eventb.core.source="/Arkham/Phases.buc|org.eventb.core.contextFile#Phases|org.eventb.core.carrierSet#\/" org.eventb.core.type="ℙ(phases)"/>
+<org.eventb.core.scConstant name="player_act_phase" org.eventb.core.source="/Arkham/Phases.buc|org.eventb.core.contextFile#Phases|org.eventb.core.constant#'" org.eventb.core.type="phases"/>
+<org.eventb.core.scConstant name="player_end_phase" org.eventb.core.source="/Arkham/Phases.buc|org.eventb.core.contextFile#Phases|org.eventb.core.constant#)" org.eventb.core.type="phases"/>
+<org.eventb.core.scConstant name="player_movement_phase" org.eventb.core.source="/Arkham/Phases.buc|org.eventb.core.contextFile#Phases|org.eventb.core.constant#(" org.eventb.core.type="phases"/>
+</org.eventb.core.scContextFile>

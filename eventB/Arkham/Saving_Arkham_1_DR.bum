@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+<org.eventb.core.event name="'" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
+<org.eventb.core.action name="'" org.eventb.core.assignment="location ≔ Shop" org.eventb.core.label="init_location"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="state ≔ player_turn" org.eventb.core.label="init_turn"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="open_gates ≔ ∅" org.eventb.core.label="init_open_gates"/>
+<org.eventb.core.action name="*" org.eventb.core.assignment="closed_gates ≔ ∅" org.eventb.core.label="init_closed_gates"/>
+<org.eventb.core.action name="," org.eventb.core.assignment="monsters ≔ ∅" org.eventb.core.label="init_monsters"/>
+<org.eventb.core.action name="-" org.eventb.core.assignment="phase ≔ player_act_phase" org.eventb.core.label="init_phase"/>
+<org.eventb.core.action name="/" org.eventb.core.assignment="monster_locations ≔ ∅" org.eventb.core.label="init_monster_locations"/>
+</org.eventb.core.event>
+<org.eventb.core.seesContext name=")" org.eventb.core.target="GameStates"/>
+<org.eventb.core.variable name="*" org.eventb.core.identifier="location"/>
+<org.eventb.core.invariant name="+" org.eventb.core.label="location_type" org.eventb.core.predicate="location ∈ locations"/>
+<org.eventb.core.event name="," org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="move">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="new_location"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="new_location_type" org.eventb.core.predicate="new_location ∈ locations"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="new_location_connected" org.eventb.core.predicate="location ↦ new_location ∈ connected"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="player_turn" org.eventb.core.predicate="state = player_turn"/>
+<org.eventb.core.action name="+" org.eventb.core.assignment="location ≔ new_location" org.eventb.core.label="move"/>
+<org.eventb.core.action name="," org.eventb.core.assignment="phase ≔ player_end_phase" org.eventb.core.label="end_turn_phase"/>
+<org.eventb.core.guard name="-" org.eventb.core.label="movement_phase" org.eventb.core.predicate="phase = player_act_phase ∨ phase = player_movement_phase"/>
+<org.eventb.core.refinesEvent name="." org.eventb.core.target="move"/>
+</org.eventb.core.event>
+<org.eventb.core.variable name="-" org.eventb.core.identifier="state"/>
+<org.eventb.core.invariant name="evtJ" org.eventb.core.label="phase_type" org.eventb.core.predicate="phase ∈ phases"/>
+<org.eventb.core.invariant name="." org.eventb.core.label="variable_type" org.eventb.core.predicate="state ∈ states"/>
+<org.eventb.core.invariant name="0" org.eventb.core.label="turn_end_type" org.eventb.core.predicate="turn_end ∈ BOOL"/>
+<org.eventb.core.event name="evt3" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="monsters_move">
+<org.eventb.core.parameter name="+" org.eventb.core.identifier="new_monster_locations"/>
+<org.eventb.core.guard name="," org.eventb.core.label="new_monster_locations_type" org.eventb.core.predicate="new_monster_locations ∈ monsters → districts"/>
+<org.eventb.core.guard name="0" org.eventb.core.label="monster_turn" org.eventb.core.predicate="state = monster_turn"/>
+<org.eventb.core.guard name="1" org.eventb.core.label="monster_move_phase" org.eventb.core.predicate="phase = monster_act_phase ∨ phase = monster_movement_phase ∨ phase = monster_add_phase"/>
+<org.eventb.core.guard name="-" org.eventb.core.label="locations_connected" org.eventb.core.predicate="∀ monster · monster ∈ monsters ⇒ monster_locations(monster) ↦ new_monster_locations(monster) ∈ connected"/>
+<org.eventb.core.action name="." org.eventb.core.assignment="monster_locations ≔ new_monster_locations" org.eventb.core.label="monster_move"/>
+<org.eventb.core.action name="/" org.eventb.core.assignment="phase ≔ monster_end_phase" org.eventb.core.label="end_turn_phase"/>
+<org.eventb.core.refinesEvent name="2" org.eventb.core.target="monsters_move"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evt9" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="add_monster">
+<org.eventb.core.parameter name=")" org.eventb.core.identifier="monster_location"/>
+<org.eventb.core.parameter name="3" org.eventb.core.identifier="monster"/>
+<org.eventb.core.guard name="4" org.eventb.core.label="monster_location_type" org.eventb.core.predicate="monster_location ∈ open_gates"/>
+<org.eventb.core.guard name="9" org.eventb.core.label="monster_turn" org.eventb.core.predicate="state = monster_turn"/>
+<org.eventb.core.guard name=":" org.eventb.core.label="monster_add_phase" org.eventb.core.predicate="phase = monster_add_phase"/>
+<org.eventb.core.guard name="5" org.eventb.core.label="monster_type" org.eventb.core.predicate="monster ∈ monster_pool ∖ monsters"/>
+<org.eventb.core.action name="6" org.eventb.core.assignment="monsters ≔ monsters ∪ {monster}" org.eventb.core.label="spawn_monster"/>
+<org.eventb.core.action name="7" org.eventb.core.assignment="monster_locations ≔ monster_locations ∪ {monster ↦ monster_location}" org.eventb.core.label="set_monster_location"/>
+<org.eventb.core.guard name="8" org.eventb.core.label="no_monster_yet" org.eventb.core.predicate="∀ existing_monster · existing_monster ∈ monsters ⇒ monster_locations(existing_monster) ≠ monster_location"/>
+<org.eventb.core.refinesEvent name=";" org.eventb.core.target="add_monster"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evtF" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="attack">
+<org.eventb.core.guard name="'" org.eventb.core.label="player_act_phase" org.eventb.core.predicate="phase = player_act_phase"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="player_turn" org.eventb.core.predicate="state = player_turn"/>
+<org.eventb.core.action name="*" org.eventb.core.assignment="phase ≔ next_phase(phase)" org.eventb.core.label="next_phase"/>
+<org.eventb.core.action name="," org.eventb.core.assignment="monster_locations ≔ monster_locations ∖ {monster ↦ p_location ∣ monster ∈ monsters ∧ p_location = location}" org.eventb.core.label="remove_monster_locations"/>
+<org.eventb.core.action name="+" org.eventb.core.assignment="monsters ≔ monsters ∖ {monster ∣ monster ∈ monsters ⇒ monster_locations(monster) = location}" org.eventb.core.label="attack"/>
+<org.eventb.core.guard name="-" org.eventb.core.label="monster_present" org.eventb.core.predicate="∃ monster · monster ∈ monsters ∧ monster_locations(monster) = location"/>
+<org.eventb.core.refinesEvent name="." org.eventb.core.target="attack"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="1" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="next_turn">
+<org.eventb.core.guard name="'" org.eventb.core.label="end_phase" org.eventb.core.predicate="phase = player_end_phase ∨ phase = monster_end_phase"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="no_win" org.eventb.core.predicate="card(closed_gates) &lt; closed_to_win "/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="state ≔ next_state(state)" org.eventb.core.label="next_turn"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="no_lose" org.eventb.core.predicate="card(open_gates) &lt; open_to_lose"/>
+<org.eventb.core.action name="+" org.eventb.core.assignment="phase ≔ next_phase(phase)" org.eventb.core.label="turn_begin"/>
+<org.eventb.core.refinesEvent name="-" org.eventb.core.target="next_turn"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="2" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="lose_game">
+<org.eventb.core.refinesEvent name="*" org.eventb.core.target="lose_game"/>
+<org.eventb.core.guard name="+" org.eventb.core.label="loss_condition" org.eventb.core.predicate="card(open_gates) ≥ open_to_lose"/>
+<org.eventb.core.guard name="," org.eventb.core.label="not_already_over" org.eventb.core.predicate="state ∉ over"/>
+<org.eventb.core.action name="-" org.eventb.core.assignment="state ≔ lost" org.eventb.core.label="lose"/>
+<org.eventb.core.guard name="." org.eventb.core.label="turn_done" org.eventb.core.predicate="phase = monster_end_phase"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evt1" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="win_game">
+<org.eventb.core.refinesEvent name="*" org.eventb.core.target="win_game"/>
+<org.eventb.core.guard name="+" org.eventb.core.label="win_condition" org.eventb.core.predicate="card(closed_gates) ≥ closed_to_win"/>
+<org.eventb.core.guard name="," org.eventb.core.label="not_already_over" org.eventb.core.predicate="state ∉ over"/>
+<org.eventb.core.action name="-" org.eventb.core.assignment="state ≔ won" org.eventb.core.label="win"/>
+<org.eventb.core.guard name="." org.eventb.core.label="turn_done" org.eventb.core.predicate="phase = player_end_phase"/>
+</org.eventb.core.event>
+<org.eventb.core.variable name="evt2" org.eventb.core.identifier="monster_locations"/>
+<org.eventb.core.invariant name="evt6" org.eventb.core.label="monsters_type" org.eventb.core.predicate="monsters ⊆ monster_pool"/>
+<org.eventb.core.invariant name="evt4" org.eventb.core.label="monster_locations_type" org.eventb.core.predicate="monster_locations ∈ monsters → locations"/>
+<org.eventb.core.variable name="evtI" org.eventb.core.identifier="phase"/>
+<org.eventb.core.variable name="evt5" org.eventb.core.identifier="monsters"/>
+<org.eventb.core.seesContext name="evtG" org.eventb.core.target="Arkham"/>
+<org.eventb.core.seesContext name="evt:" org.eventb.core.target="Monsters_For_LTL_CTL"/>
+<org.eventb.core.event name="evt;" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="game_over">
+<org.eventb.core.refinesEvent name="(" org.eventb.core.target="game_over"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="&#9;game_over" org.eventb.core.predicate="state ∈ over"/>
+</org.eventb.core.event>
+<org.eventb.core.refinesMachine name="evt=" org.eventb.core.target="Saving_Arkham_1"/>
+<org.eventb.core.variable name="evt?" org.eventb.core.identifier="open_gates"/>
+<org.eventb.core.variable name="evt@" org.eventb.core.identifier="closed_gates"/>
+<org.eventb.core.event name="evtA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="open_gate">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="open_gate"/>
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="building"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="building_type" org.eventb.core.predicate="building ∈ buildings ∖ open_gates"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="phase ≔ next_phase(phase)" org.eventb.core.label="next_phase"/>
+<org.eventb.core.action name="*" org.eventb.core.assignment="open_gates ≔ open_gates ∪ {building}" org.eventb.core.label="open_gate"/>
+<org.eventb.core.guard name="-" org.eventb.core.label="monster_act_phase" org.eventb.core.predicate="phase = monster_act_phase"/>
+<org.eventb.core.guard name="+" org.eventb.core.label="monster_turn" org.eventb.core.predicate="state = monster_turn"/>
+<org.eventb.core.action name="," org.eventb.core.assignment="closed_gates ≔ closed_gates ∖ {building}" org.eventb.core.label="no_longer_closed"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="evtB" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="close_gate">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="close_gate"/>
+<org.eventb.core.parameter name="(" org.eventb.core.identifier="building"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="building_type" org.eventb.core.predicate="building ∈ open_gates"/>
+<org.eventb.core.guard name="+" org.eventb.core.label="player_at_gate" org.eventb.core.predicate="building = location"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="player_turn" org.eventb.core.predicate="state = player_turn"/>
+<org.eventb.core.action name="," org.eventb.core.assignment="phase ≔ next_phase(phase)" org.eventb.core.label="next_phase"/>
+<org.eventb.core.action name="-" org.eventb.core.assignment="open_gates ≔ open_gates ∖ {building}" org.eventb.core.label="no_longer_open"/>
+<org.eventb.core.guard name="1" org.eventb.core.label="player_act_phase" org.eventb.core.predicate="phase = player_act_phase"/>
+<org.eventb.core.action name="0" org.eventb.core.assignment="closed_gates ≔ closed_gates ∪ {building}" org.eventb.core.label="close_gate"/>
+</org.eventb.core.event>
+<org.eventb.core.seesContext name="evtH" org.eventb.core.target="Phases"/>
+</org.eventb.core.machineFile>
