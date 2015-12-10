@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.poFile org.eventb.core.poStamp="80">
+<org.eventb.core.poFile org.eventb.core.poStamp="81">
 <org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="79">
 <org.eventb.core.poIdentifier name="states" org.eventb.core.type="ℙ(states)"/>
 <org.eventb.core.poIdentifier name="closed_to_win" org.eventb.core.type="ℤ"/>
@@ -359,7 +359,7 @@
 <org.eventb.core.poPredicateSet name="EVTALLHYPMonsters_For_LTL_CT\" org.eventb.core.parentSet="/Arkham/Saving_Arkham_1.bpo|org.eventb.core.poFile#Saving_Arkham_1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="state∈over" org.eventb.core.source="/Arkham/Saving_Arkham_1.bum|org.eventb.core.machineFile#Saving_Arkham_1|org.eventb.core.event#evt;|org.eventb.core.guard#)"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poSequent name="open_gate/building_type/GRD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Guard strengthening (split)" org.eventb.core.poStamp="79">
+<org.eventb.core.poSequent name="open_gate/building_type/GRD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Guard strengthening (split)" org.eventb.core.poStamp="81">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Arkham/Saving_Arkham_1.bpo|org.eventb.core.poFile#Saving_Arkham_1|org.eventb.core.poPredicateSet#EVTALLHYPMonsters_For_LTL_CT]"/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="building∈buildings" org.eventb.core.source="/Arkham/Saving_Arkham_0.bum|org.eventb.core.machineFile#Saving_Arkham_0|org.eventb.core.event#evt5|org.eventb.core.guard#("/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Arkham/Saving_Arkham_0.bum|org.eventb.core.machineFile#Saving_Arkham_0|org.eventb.core.event#evt5"/>
@@ -367,7 +367,7 @@
 <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Arkham/Saving_Arkham_1.bum|org.eventb.core.machineFile#Saving_Arkham_1|org.eventb.core.event#evtA"/>
 <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Arkham/Saving_Arkham_1.bpo|org.eventb.core.poFile#Saving_Arkham_1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Arkham/Saving_Arkham_1.bpo|org.eventb.core.poFile#Saving_Arkham_1|org.eventb.core.poSequent#open_gate\/building_type\/GRD|org.eventb.core.poPredicateSet#SEQHYP"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="open_gate/no_open_gate/GRD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Guard strengthening (split)" org.eventb.core.poStamp="79">
+<org.eventb.core.poSequent name="open_gate/no_open_gate/GRD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Guard strengthening (split)" org.eventb.core.poStamp="81">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Arkham/Saving_Arkham_1.bpo|org.eventb.core.poFile#Saving_Arkham_1|org.eventb.core.poPredicateSet#EVTALLHYPMonsters_For_LTL_CT]"/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="building∉open_gates" org.eventb.core.source="/Arkham/Saving_Arkham_0.bum|org.eventb.core.machineFile#Saving_Arkham_0|org.eventb.core.event#evt5|org.eventb.core.guard#)"/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Arkham/Saving_Arkham_0.bum|org.eventb.core.machineFile#Saving_Arkham_0|org.eventb.core.event#evt5"/>
@@ -375,7 +375,7 @@
 <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Arkham/Saving_Arkham_1.bum|org.eventb.core.machineFile#Saving_Arkham_1|org.eventb.core.event#evtA"/>
 <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Arkham/Saving_Arkham_1.bpo|org.eventb.core.poFile#Saving_Arkham_1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Arkham/Saving_Arkham_1.bpo|org.eventb.core.poFile#Saving_Arkham_1|org.eventb.core.poSequent#open_gate\/no_open_gate\/GRD|org.eventb.core.poPredicateSet#SEQHYP"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="open_gate/no_game_over/GRD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Guard strengthening (split)" org.eventb.core.poStamp="79">
+<org.eventb.core.poSequent name="open_gate/no_game_over/GRD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Guard strengthening (split)" org.eventb.core.poStamp="81">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Arkham/Saving_Arkham_1.bpo|org.eventb.core.poFile#Saving_Arkham_1|org.eventb.core.poPredicateSet#EVTALLHYPMonsters_For_LTL_CT]"/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="game_over=FALSE" org.eventb.core.source="/Arkham/Saving_Arkham_0.bum|org.eventb.core.machineFile#Saving_Arkham_0|org.eventb.core.event#evt5|org.eventb.core.guard#*"/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Arkham/Saving_Arkham_0.bum|org.eventb.core.machineFile#Saving_Arkham_0|org.eventb.core.event#evt5"/>
@@ -389,9 +389,10 @@
 <org.eventb.core.poIdentifier name="closed_gates'" org.eventb.core.type="ℙ(locations)"/>
 <org.eventb.core.poIdentifier name="building" org.eventb.core.type="locations"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPMonsters_For_LTL_CT]" org.eventb.core.parentSet="/Arkham/Saving_Arkham_1.bpo|org.eventb.core.poFile#Saving_Arkham_1|org.eventb.core.poPredicateSet#EVTIDENTMonsters_For_LTL_CT]" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="EVTALLHYPMonsters_For_LTL_CT]" org.eventb.core.parentSet="/Arkham/Saving_Arkham_1.bpo|org.eventb.core.poFile#Saving_Arkham_1|org.eventb.core.poPredicateSet#EVTIDENTMonsters_For_LTL_CT]" org.eventb.core.poStamp="81">
 <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="building∈buildings ∖ open_gates" org.eventb.core.source="/Arkham/Saving_Arkham_1.bum|org.eventb.core.machineFile#Saving_Arkham_1|org.eventb.core.event#evtA|org.eventb.core.guard#("/>
 <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="state=monster_turn" org.eventb.core.source="/Arkham/Saving_Arkham_1.bum|org.eventb.core.machineFile#Saving_Arkham_1|org.eventb.core.event#evtA|org.eventb.core.guard#+"/>
+<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="acted=FALSE" org.eventb.core.source="/Arkham/Saving_Arkham_1.bum|org.eventb.core.machineFile#Saving_Arkham_1|org.eventb.core.event#evtA|org.eventb.core.guard#-"/>
 </org.eventb.core.poPredicateSet>
 <org.eventb.core.poSequent name="close_gate/building_type/GRD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Guard strengthening (split)" org.eventb.core.poStamp="79">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Arkham/Saving_Arkham_1.bpo|org.eventb.core.poFile#Saving_Arkham_1|org.eventb.core.poPredicateSet#EVTALLHYPMonsters_For_LTL_CT^"/>
