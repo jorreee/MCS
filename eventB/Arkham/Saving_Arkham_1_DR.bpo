@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.poFile org.eventb.core.poStamp="33">
+<org.eventb.core.poFile org.eventb.core.poStamp="34">
 <org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="24">
 <org.eventb.core.poIdentifier name="states" org.eventb.core.type="ℙ(states)"/>
 <org.eventb.core.poIdentifier name="closed_to_win" org.eventb.core.type="ℤ"/>
@@ -179,13 +179,13 @@
 <org.eventb.core.poPredicateSet name="EVTALLHYPMonsters_For_LTL_CT\" org.eventb.core.parentSet="/Arkham/Saving_Arkham_1_DR.bpo|org.eventb.core.poFile#Saving_Arkham_1_DR|org.eventb.core.poPredicateSet#EVTHYPMonsters_For_LTL_CT\\*" org.eventb.core.poStamp="24">
 <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="∀monster⦂ℤ·monster∈monsters⇒monster_locations(monster) ↦ new_monster_locations(monster)∈connected" org.eventb.core.source="/Arkham/Saving_Arkham_1_DR.bum|org.eventb.core.machineFile#Saving_Arkham_1_DR|org.eventb.core.event#evt3|org.eventb.core.guard#-"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poSequent name="add_monster/no_monster_yet/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="24">
+<org.eventb.core.poSequent name="add_monster/no_monster_yet/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="34">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Arkham/Saving_Arkham_1_DR.bpo|org.eventb.core.poFile#Saving_Arkham_1_DR|org.eventb.core.poPredicateSet#EVTHYPMonsters_For_LTL_CT]+"/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀existing_monster⦂ℤ·existing_monster∈monsters⇒existing_monster∈dom(monster_locations)∧monster_locations∈ℤ ⇸ locations" org.eventb.core.source="/Arkham/Saving_Arkham_1_DR.bum|org.eventb.core.machineFile#Saving_Arkham_1_DR|org.eventb.core.event#evt9|org.eventb.core.guard#8"/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Arkham/Saving_Arkham_1_DR.bum|org.eventb.core.machineFile#Saving_Arkham_1_DR|org.eventb.core.event#evt9|org.eventb.core.guard#8"/>
 <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/Arkham/Saving_Arkham_1_DR.bpo|org.eventb.core.poFile#Saving_Arkham_1_DR|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Arkham/Saving_Arkham_1_DR.bpo|org.eventb.core.poFile#Saving_Arkham_1_DR|org.eventb.core.poPredicateSet#EVTHYPMonsters_For_LTL_CT]+"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="add_monster/monsters_type/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="24">
+<org.eventb.core.poSequent name="add_monster/monsters_type/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="34">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Arkham/Saving_Arkham_1_DR.bpo|org.eventb.core.poFile#Saving_Arkham_1_DR|org.eventb.core.poPredicateSet#EVTALLHYPMonsters_For_LTL_CT]"/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="monsters∪{monster}⊆monster_pool" org.eventb.core.source="/Arkham/Saving_Arkham_1_DR.bum|org.eventb.core.machineFile#Saving_Arkham_1_DR|org.eventb.core.invariant#evt6"/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Arkham/Saving_Arkham_1.bum|org.eventb.core.machineFile#Saving_Arkham_1|org.eventb.core.event#evt9"/>
@@ -194,7 +194,7 @@
 <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Arkham/Saving_Arkham_1_DR.bpo|org.eventb.core.poFile#Saving_Arkham_1_DR|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Arkham/Saving_Arkham_1_DR.bpo|org.eventb.core.poFile#Saving_Arkham_1_DR|org.eventb.core.poSequent#add_monster\/monsters_type\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
 <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Arkham/Saving_Arkham_1_DR.bpo|org.eventb.core.poFile#Saving_Arkham_1_DR|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD4"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="add_monster/monster_locations_type/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="24">
+<org.eventb.core.poSequent name="add_monster/monster_locations_type/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="34">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Arkham/Saving_Arkham_1_DR.bpo|org.eventb.core.poFile#Saving_Arkham_1_DR|org.eventb.core.poPredicateSet#EVTALLHYPMonsters_For_LTL_CT]"/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="monster_locations∪{monster ↦ monster_location}∈monsters∪{monster} → locations" org.eventb.core.source="/Arkham/Saving_Arkham_1_DR.bum|org.eventb.core.machineFile#Saving_Arkham_1_DR|org.eventb.core.invariant#evt4"/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Arkham/Saving_Arkham_1.bum|org.eventb.core.machineFile#Saving_Arkham_1|org.eventb.core.event#evt9"/>
@@ -203,7 +203,7 @@
 <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Arkham/Saving_Arkham_1_DR.bpo|org.eventb.core.poFile#Saving_Arkham_1_DR|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Arkham/Saving_Arkham_1_DR.bpo|org.eventb.core.poFile#Saving_Arkham_1_DR|org.eventb.core.poSequent#add_monster\/monster_locations_type\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
 <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Arkham/Saving_Arkham_1_DR.bpo|org.eventb.core.poFile#Saving_Arkham_1_DR|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD5"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="add_monster/turn_not_done/GRD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Guard strengthening (split)" org.eventb.core.poStamp="24">
+<org.eventb.core.poSequent name="add_monster/turn_not_done/GRD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Guard strengthening (split)" org.eventb.core.poStamp="34">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Arkham/Saving_Arkham_1_DR.bpo|org.eventb.core.poFile#Saving_Arkham_1_DR|org.eventb.core.poPredicateSet#EVTALLHYPMonsters_For_LTL_CT]"/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="turn_end=FALSE" org.eventb.core.source="/Arkham/Saving_Arkham_1.bum|org.eventb.core.machineFile#Saving_Arkham_1|org.eventb.core.event#evt9|org.eventb.core.guard#:"/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Arkham/Saving_Arkham_1.bum|org.eventb.core.machineFile#Saving_Arkham_1|org.eventb.core.event#evt9"/>
@@ -217,13 +217,13 @@
 <org.eventb.core.poIdentifier name="monster_locations'" org.eventb.core.type="ℙ(ℤ×locations)"/>
 <org.eventb.core.poIdentifier name="monster_location" org.eventb.core.type="locations"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTHYPMonsters_For_LTL_CT]+" org.eventb.core.parentSet="/Arkham/Saving_Arkham_1_DR.bpo|org.eventb.core.poFile#Saving_Arkham_1_DR|org.eventb.core.poPredicateSet#EVTIDENTMonsters_For_LTL_CT]" org.eventb.core.poStamp="24">
+<org.eventb.core.poPredicateSet name="EVTHYPMonsters_For_LTL_CT]+" org.eventb.core.parentSet="/Arkham/Saving_Arkham_1_DR.bpo|org.eventb.core.poFile#Saving_Arkham_1_DR|org.eventb.core.poPredicateSet#EVTIDENTMonsters_For_LTL_CT]" org.eventb.core.poStamp="34">
 <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="monster_location∈open_gates" org.eventb.core.source="/Arkham/Saving_Arkham_1_DR.bum|org.eventb.core.machineFile#Saving_Arkham_1_DR|org.eventb.core.event#evt9|org.eventb.core.guard#4"/>
 <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="state=monster_turn" org.eventb.core.source="/Arkham/Saving_Arkham_1_DR.bum|org.eventb.core.machineFile#Saving_Arkham_1_DR|org.eventb.core.event#evt9|org.eventb.core.guard#9"/>
-<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="phase=monster_add_phase" org.eventb.core.source="/Arkham/Saving_Arkham_1_DR.bum|org.eventb.core.machineFile#Saving_Arkham_1_DR|org.eventb.core.event#evt9|org.eventb.core.guard#:"/>
+<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="phase=monster_add_phase∨phase=monster_act_phase" org.eventb.core.source="/Arkham/Saving_Arkham_1_DR.bum|org.eventb.core.machineFile#Saving_Arkham_1_DR|org.eventb.core.event#evt9|org.eventb.core.guard#:"/>
 <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="monster∈monster_pool ∖ monsters" org.eventb.core.source="/Arkham/Saving_Arkham_1_DR.bum|org.eventb.core.machineFile#Saving_Arkham_1_DR|org.eventb.core.event#evt9|org.eventb.core.guard#5"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPMonsters_For_LTL_CT]" org.eventb.core.parentSet="/Arkham/Saving_Arkham_1_DR.bpo|org.eventb.core.poFile#Saving_Arkham_1_DR|org.eventb.core.poPredicateSet#EVTHYPMonsters_For_LTL_CT]+" org.eventb.core.poStamp="24">
+<org.eventb.core.poPredicateSet name="EVTALLHYPMonsters_For_LTL_CT]" org.eventb.core.parentSet="/Arkham/Saving_Arkham_1_DR.bpo|org.eventb.core.poFile#Saving_Arkham_1_DR|org.eventb.core.poPredicateSet#EVTHYPMonsters_For_LTL_CT]+" org.eventb.core.poStamp="34">
 <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="∀existing_monster⦂ℤ·existing_monster∈monsters⇒monster_locations(existing_monster)≠monster_location" org.eventb.core.source="/Arkham/Saving_Arkham_1_DR.bum|org.eventb.core.machineFile#Saving_Arkham_1_DR|org.eventb.core.event#evt9|org.eventb.core.guard#8"/>
 </org.eventb.core.poPredicateSet>
 <org.eventb.core.poSequent name="attack/monster_present/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="24">

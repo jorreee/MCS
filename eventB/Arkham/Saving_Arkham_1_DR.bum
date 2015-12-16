@@ -41,7 +41,7 @@
 <org.eventb.core.parameter name="3" org.eventb.core.identifier="monster"/>
 <org.eventb.core.guard name="4" org.eventb.core.label="monster_location_type" org.eventb.core.predicate="monster_location ∈ open_gates"/>
 <org.eventb.core.guard name="9" org.eventb.core.label="monster_turn" org.eventb.core.predicate="state = monster_turn"/>
-<org.eventb.core.guard name=":" org.eventb.core.label="monster_add_phase" org.eventb.core.predicate="phase = monster_add_phase"/>
+<org.eventb.core.guard name=":" org.eventb.core.label="monster_add_phase" org.eventb.core.predicate="phase = monster_add_phase ∨ phase = monster_act_phase"/>
 <org.eventb.core.guard name="5" org.eventb.core.label="monster_type" org.eventb.core.predicate="monster ∈ monster_pool ∖ monsters"/>
 <org.eventb.core.action name="6" org.eventb.core.assignment="monsters ≔ monsters ∪ {monster}" org.eventb.core.label="spawn_monster"/>
 <org.eventb.core.action name="7" org.eventb.core.assignment="monster_locations ≔ monster_locations ∪ {monster ↦ monster_location}" org.eventb.core.label="set_monster_location"/>
