@@ -85,7 +85,7 @@
 <org.eventb.core.variable name="evtI" org.eventb.core.identifier="phase"/>
 <org.eventb.core.variable name="evt5" org.eventb.core.identifier="monsters"/>
 <org.eventb.core.seesContext name="evtG" org.eventb.core.target="Arkham"/>
-<org.eventb.core.seesContext name="evt:" org.eventb.core.target="Monsters_For_LTL_CTL"/>
+<org.eventb.core.seesContext name="evt:" org.eventb.core.target="Monsters"/>
 <org.eventb.core.event name="evt;" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="game_over">
 <org.eventb.core.refinesEvent name="(" org.eventb.core.target="game_over"/>
 <org.eventb.core.guard name=")" org.eventb.core.label="&#9;game_over" org.eventb.core.predicate="state ∈ over"/>
