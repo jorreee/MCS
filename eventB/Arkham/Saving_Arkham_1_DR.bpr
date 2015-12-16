@@ -1611,7 +1611,7 @@
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
 <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p103" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p104"/>
-<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p13,p21,p2,p6,p27,p31,p24,p1,p9,p26,p32,p28,p10,p5,p7,p8,p16,p15,p33,p4,p35,p30,p18,p11,p12,p3,p25,p22,p17,p29,p14,p36,p37,p38,p39,p40,p41,p42,p43,p44,p45,p46,p47,p48,p49,p50,p51,p52,p53,p54,p55,p56,p57,p58,p59,p60,p61,p62,p63,p64,p65,p66,p67,p68,p69,p70,p71,p72,p73,p74,p75,p76,p77,p78,p79,p80,p81,p82,p83,p84,p85,p86,p87,p88,p89,p90,p91,p92,p93,p104">
+<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p13,p21,p2,p6,p27,p31,p24,p1,p9,p26,p32,p28,p10,p5,p7,p8,p16,p15,p4,p33,p35,p30,p18,p11,p12,p3,p25,p22,p17,p29,p14,p36,p37,p38,p39,p40,p41,p42,p43,p44,p45,p46,p47,p48,p49,p50,p51,p52,p53,p54,p55,p56,p57,p58,p59,p60,p61,p62,p63,p64,p65,p66,p67,p68,p69,p70,p71,p72,p73,p74,p75,p76,p77,p78,p79,p80,p81,p82,p83,p84,p85,p86,p87,p88,p89,p90,p91,p92,p93,p104">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
@@ -1783,11 +1783,11 @@
 <org.eventb.core.prIdent name="location" org.eventb.core.type="locations"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p0" org.eventb.core.predicate="new_monster_locations∈monsters → locations"/>
-<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
-<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-<org.eventb.core.prReas name="r4" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r4" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="monsters_move/one_location/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="l2,l1" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32" org.eventb.core.prSets="locations,states">
 <org.eventb.core.lang name="L"/>
@@ -2633,7 +2633,7 @@
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
 <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p108" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p109"/>
-<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p101" org.eventb.core.prHyps="p15,p24,p2,p6,p29,p32,p26,p1,p11,p28,p33,p30,p12,p5,p7,p9,p17,p16,p34,p4,p36,p31,p19,p13,p14,p3,p27,p20,p18,p10,p8,p37,p38,p39,p40,p41,p42,p43,p44,p45,p46,p47,p48,p49,p50,p51,p52,p53,p54,p55,p56,p57,p58,p59,p60,p61,p62,p63,p64,p65,p66,p67,p68,p69,p70,p71,p72,p73,p74,p75,p76,p77,p78,p79,p80,p81,p82,p83,p84,p85,p86,p87,p88,p89,p90,p91,p92,p93,p94,p96,p109">
+<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p101" org.eventb.core.prHyps="p15,p24,p2,p6,p29,p32,p26,p1,p11,p28,p33,p30,p12,p5,p7,p9,p17,p16,p4,p34,p36,p31,p19,p13,p14,p3,p27,p20,p18,p10,p8,p37,p38,p39,p40,p41,p42,p43,p44,p45,p46,p47,p48,p49,p50,p51,p52,p53,p54,p55,p56,p57,p58,p59,p60,p61,p62,p63,p64,p65,p66,p67,p68,p69,p70,p71,p72,p73,p74,p75,p76,p77,p78,p79,p80,p81,p82,p83,p84,p85,p86,p87,p88,p89,p90,p91,p92,p93,p94,p96,p109">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
@@ -2811,11 +2811,11 @@
 <org.eventb.core.prPred name="p103" org.eventb.core.predicate="location∈locations">
 <org.eventb.core.prIdent name="location" org.eventb.core.type="locations"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
-<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-<org.eventb.core.prReas name="r4" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r4" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="add_monster/monster_locations_type/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34,p35,p36" org.eventb.core.prSets="locations,phases,states">
 <org.eventb.core.lang name="L"/>
@@ -2853,7 +2853,7 @@
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
 <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p105" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p106"/>
-<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p15,p24,p2,p6,p29,p32,p26,p1,p11,p28,p33,p30,p12,p5,p7,p9,p17,p16,p34,p4,p36,p31,p19,p13,p14,p3,p27,p20,p18,p10,p8,p37,p38,p39,p40,p41,p42,p43,p44,p45,p46,p47,p48,p49,p50,p51,p52,p53,p54,p55,p56,p57,p58,p59,p60,p61,p62,p63,p64,p65,p66,p67,p68,p69,p70,p71,p72,p73,p74,p75,p76,p77,p78,p79,p80,p81,p82,p83,p84,p85,p86,p87,p88,p89,p90,p91,p92,p93,p94,p96,p106">
+<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p15,p24,p2,p6,p29,p32,p26,p1,p11,p28,p33,p30,p12,p5,p7,p9,p17,p16,p4,p34,p36,p31,p19,p13,p14,p3,p27,p20,p18,p10,p8,p37,p38,p39,p40,p41,p42,p43,p44,p45,p46,p47,p48,p49,p50,p51,p52,p53,p54,p55,p56,p57,p58,p59,p60,p61,p62,p63,p64,p65,p66,p67,p68,p69,p70,p71,p72,p73,p74,p75,p76,p77,p78,p79,p80,p81,p82,p83,p84,p85,p86,p87,p88,p89,p90,p91,p92,p93,p94,p96,p106">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
@@ -3028,11 +3028,11 @@
 <org.eventb.core.prPred name="p100" org.eventb.core.predicate="location∈locations">
 <org.eventb.core.prIdent name="location" org.eventb.core.type="locations"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
-<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-<org.eventb.core.prReas name="r4" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r4" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="add_monster/monsters_finite/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
 <org.eventb.core.lang name="L"/>
@@ -19564,11 +19564,11 @@
 <org.eventb.core.prIdent name="states" org.eventb.core.type="ℙ(states)"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p68" org.eventb.core.predicate="location∈locations"/>
-<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
-<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="close_gate/turn_not_done/GRD" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="p0" org.eventb.core.prSets="locations">
 <org.eventb.core.lang name="L"/>
@@ -19977,11 +19977,11 @@
 <org.eventb.core.prIdent name="states" org.eventb.core.type="ℙ(states)"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p68" org.eventb.core.predicate="location∈locations"/>
-<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
-<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="close_gate/no_longer_open/SIM" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="locations">
 <org.eventb.core.lang name="L"/>
@@ -23280,10 +23280,10 @@
 <org.eventb.core.prIdent name="location" org.eventb.core.type="locations"/>
 <org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="monsters_move/turn_not_done/GRD" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
 <org.eventb.core.lang name="L"/>
@@ -23718,10 +23718,10 @@
 <org.eventb.core.prIdent name="location" org.eventb.core.type="locations"/>
 <org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="add_monster/turn_not_done/GRD" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
 <org.eventb.core.lang name="L"/>
@@ -24169,10 +24169,10 @@
 <org.eventb.core.prIdent name="location" org.eventb.core.type="locations"/>
 <org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="attack/not_acted/GRD" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
 <org.eventb.core.lang name="L"/>
@@ -24607,10 +24607,10 @@
 <org.eventb.core.prIdent name="location" org.eventb.core.type="locations"/>
 <org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="attack/turn_not_done/GRD" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
 <org.eventb.core.lang name="L"/>
@@ -25045,10 +25045,10 @@
 <org.eventb.core.prIdent name="location" org.eventb.core.type="locations"/>
 <org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="attack/remove_monster_locations/SIM" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="locations">
 <org.eventb.core.lang name="L"/>
@@ -25828,10 +25828,10 @@
 <org.eventb.core.prIdent name="location" org.eventb.core.type="locations"/>
 <org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="next_turn/turn_begin/WD" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34" org.eventb.core.prSets="locations,phases,states">
 <org.eventb.core.lang name="L"/>
@@ -26045,12 +26045,12 @@
 <org.eventb.core.prPred name="p97" org.eventb.core.predicate="location∈locations">
 <org.eventb.core.prIdent name="location" org.eventb.core.type="locations"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
-<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-<org.eventb.core.prReas name="r5" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
+<org.eventb.core.prReas name="r5" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="lose_game/turn_done/GRD" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
 <org.eventb.core.lang name="L"/>
@@ -26510,10 +26510,10 @@
 <org.eventb.core.prIdent name="location" org.eventb.core.type="locations"/>
 <org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="win_game/turn_done/GRD" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
 <org.eventb.core.lang name="L"/>
@@ -26973,10 +26973,10 @@
 <org.eventb.core.prIdent name="location" org.eventb.core.type="locations"/>
 <org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="open_gate/next_phase/WD" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34" org.eventb.core.prSets="locations,phases,states">
 <org.eventb.core.lang name="L"/>
@@ -27196,13 +27196,13 @@
 <org.eventb.core.prPred name="p97" org.eventb.core.predicate="location∈locations">
 <org.eventb.core.prIdent name="location" org.eventb.core.type="locations"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
-<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
-<org.eventb.core.prReas name="r6" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
+<org.eventb.core.prReas name="r6" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="open_gate/not_acted/GRD" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
 <org.eventb.core.lang name="L"/>
@@ -27637,10 +27637,10 @@
 <org.eventb.core.prIdent name="location" org.eventb.core.type="locations"/>
 <org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="close_gate/next_phase/WD" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34,p35" org.eventb.core.prSets="locations,phases,states">
 <org.eventb.core.lang name="L"/>
@@ -27874,13 +27874,13 @@
 <org.eventb.core.prPred name="p30" org.eventb.core.predicate="finite(open_gates)"/>
 <org.eventb.core.prPred name="p39" org.eventb.core.predicate="¬player_turn=lost"/>
 <org.eventb.core.prPred name="p98" org.eventb.core.predicate="location∈locations"/>
-<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
-<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
-<org.eventb.core.prReas name="r6" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
+<org.eventb.core.prReas name="r6" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="attack/next_phase/WD" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34,p35" org.eventb.core.prSets="locations,phases,states">
 <org.eventb.core.lang name="L"/>
@@ -28099,12 +28099,450 @@
 <org.eventb.core.prPred name="p30" org.eventb.core.predicate="finite(open_gates)"/>
 <org.eventb.core.prPred name="p39" org.eventb.core.predicate="¬player_turn=lost"/>
 <org.eventb.core.prPred name="p98" org.eventb.core.predicate="location∈locations"/>
-<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
-<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
-<org.eventb.core.prReas name="r6" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
+<org.eventb.core.prReas name="r6" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="open_gate/turn_not_done/GRD" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(states,{player_turn},{monster_turn},{won},{lost}))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p0" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p1,p2,p3,p4,p5,p6,p7"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(locations,{Rivertown},{Easttown},{Downtown},{Merchant_District},{Shop},{Library},{Bank},{Station}))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p8" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34,p35,p36,p37"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34,p35,p36,p37"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(phases,{player_act_phase},{player_movement_phase},{player_end_phase},{monster_act_phase},{monster_add_phase},{monster_movement_phase},{monster_end_phase}))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p38" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p39,p40,p41,p42,p43,p44,p45,p46,p47,p48,p49,p50,p51,p52,p53,p54,p55,p56,p57,p58,p59,p60"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p39,p40,p41,p42,p43,p44,p45,p46,p47,p48,p49,p50,p51,p52,p53,p54,p55,p56,p57,p58,p59,p60"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p61" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p62"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p62" org.eventb.core.prHyps="p64" org.eventb.core.prInfHyps="p63"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p63" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p65"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p66"/>
+<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p67"/>
+<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p68"/>
+<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p69"/>
+<org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p70"/>
+<org.eventb.core.prHypAction name="HIDE5" org.eventb.core.prHyps="p71"/>
+<org.eventb.core.prHypAction name="REWRITE6" org.eventb.core.prHidden="p65" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p72"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p72" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p73"/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+</org.eventb.core.prRule>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="¬Rivertown=Station">
+<org.eventb.core.prIdent name="Rivertown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Station" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="¬Rivertown=Easttown">
+<org.eventb.core.prIdent name="Easttown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Rivertown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p47" org.eventb.core.predicate="¬player_movement_phase=monster_act_phase">
+<org.eventb.core.prIdent name="monster_act_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="phases" org.eventb.core.type="ℙ(phases)"/>
+<org.eventb.core.prIdent name="player_movement_phase" org.eventb.core.type="phases"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p72" org.eventb.core.predicate="⊥∨districts=(∅ ⦂ ℙ(locations))∨finite(districts)">
+<org.eventb.core.prIdent name="districts" org.eventb.core.type="ℙ(locations)"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="¬Rivertown=Bank">
+<org.eventb.core.prIdent name="Bank" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Rivertown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p25" org.eventb.core.predicate="¬Downtown=Library">
+<org.eventb.core.prIdent name="Downtown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Library" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p66" org.eventb.core.predicate="game_over∈BOOL">
+<org.eventb.core.prIdent name="game_over" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="¬Easttown=Shop">
+<org.eventb.core.prIdent name="Easttown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Shop" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p27" org.eventb.core.predicate="¬Downtown=Station">
+<org.eventb.core.prIdent name="Downtown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Station" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="¬Rivertown=Library">
+<org.eventb.core.prIdent name="Library" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Rivertown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p59" org.eventb.core.predicate="¬monster_add_phase=monster_end_phase">
+<org.eventb.core.prIdent name="monster_add_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="monster_end_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="phases" org.eventb.core.type="ℙ(phases)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p71" org.eventb.core.predicate="phase∈phases">
+<org.eventb.core.prIdent name="phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="phases" org.eventb.core.type="ℙ(phases)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p43" org.eventb.core.predicate="¬player_act_phase=monster_add_phase">
+<org.eventb.core.prIdent name="monster_add_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="phases" org.eventb.core.type="ℙ(phases)"/>
+<org.eventb.core.prIdent name="player_act_phase" org.eventb.core.type="phases"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p57" org.eventb.core.predicate="¬monster_act_phase=monster_end_phase">
+<org.eventb.core.prIdent name="monster_act_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="monster_end_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="phases" org.eventb.core.type="ℙ(phases)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="¬Easttown=Library">
+<org.eventb.core.prIdent name="Easttown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Library" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p62" org.eventb.core.predicate="locations=(∅ ⦂ ℙ(locations))∨districts=(∅ ⦂ ℙ(locations))∨(finite(locations)∧finite(districts))">
+<org.eventb.core.prIdent name="districts" org.eventb.core.type="ℙ(locations)"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p50" org.eventb.core.predicate="¬player_movement_phase=monster_end_phase">
+<org.eventb.core.prIdent name="monster_end_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="phases" org.eventb.core.type="ℙ(phases)"/>
+<org.eventb.core.prIdent name="player_movement_phase" org.eventb.core.type="phases"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p64" org.eventb.core.predicate="finite(locations)">
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p34" org.eventb.core.predicate="¬Shop=Station">
+<org.eventb.core.prIdent name="Shop" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Station" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p45" org.eventb.core.predicate="¬player_act_phase=monster_end_phase">
+<org.eventb.core.prIdent name="monster_end_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="phases" org.eventb.core.type="ℙ(phases)"/>
+<org.eventb.core.prIdent name="player_act_phase" org.eventb.core.type="phases"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p55" org.eventb.core.predicate="¬monster_act_phase=monster_add_phase">
+<org.eventb.core.prIdent name="monster_act_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="monster_add_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="phases" org.eventb.core.type="ℙ(phases)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="partition(states,{player_turn},{monster_turn},{won},{lost})">
+<org.eventb.core.prIdent name="lost" org.eventb.core.type="states"/>
+<org.eventb.core.prIdent name="monster_turn" org.eventb.core.type="states"/>
+<org.eventb.core.prIdent name="player_turn" org.eventb.core.type="states"/>
+<org.eventb.core.prIdent name="states" org.eventb.core.type="ℙ(states)"/>
+<org.eventb.core.prIdent name="won" org.eventb.core.type="states"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="¬Rivertown=Downtown">
+<org.eventb.core.prIdent name="Downtown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Rivertown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p35" org.eventb.core.predicate="¬Library=Bank">
+<org.eventb.core.prIdent name="Bank" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Library" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p23" org.eventb.core.predicate="¬Downtown=Merchant_District">
+<org.eventb.core.prIdent name="Downtown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Merchant_District" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p54" org.eventb.core.predicate="¬player_end_phase=monster_end_phase">
+<org.eventb.core.prIdent name="monster_end_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="phases" org.eventb.core.type="ℙ(phases)"/>
+<org.eventb.core.prIdent name="player_end_phase" org.eventb.core.type="phases"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p24" org.eventb.core.predicate="¬Downtown=Shop">
+<org.eventb.core.prIdent name="Downtown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Shop" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p36" org.eventb.core.predicate="¬Library=Station">
+<org.eventb.core.prIdent name="Library" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Station" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬monster_turn=won">
+<org.eventb.core.prIdent name="monster_turn" org.eventb.core.type="states"/>
+<org.eventb.core.prIdent name="states" org.eventb.core.type="ℙ(states)"/>
+<org.eventb.core.prIdent name="won" org.eventb.core.type="states"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p26" org.eventb.core.predicate="¬Downtown=Bank">
+<org.eventb.core.prIdent name="Bank" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Downtown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p30" org.eventb.core.predicate="¬Merchant_District=Bank">
+<org.eventb.core.prIdent name="Bank" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Merchant_District" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p53" org.eventb.core.predicate="¬player_end_phase=monster_movement_phase">
+<org.eventb.core.prIdent name="monster_movement_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="phases" org.eventb.core.type="ℙ(phases)"/>
+<org.eventb.core.prIdent name="player_end_phase" org.eventb.core.type="phases"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="states={player_turn,monster_turn,won,lost}">
+<org.eventb.core.prIdent name="lost" org.eventb.core.type="states"/>
+<org.eventb.core.prIdent name="monster_turn" org.eventb.core.type="states"/>
+<org.eventb.core.prIdent name="player_turn" org.eventb.core.type="states"/>
+<org.eventb.core.prIdent name="states" org.eventb.core.type="ℙ(states)"/>
+<org.eventb.core.prIdent name="won" org.eventb.core.type="states"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p40" org.eventb.core.predicate="¬player_act_phase=player_movement_phase">
+<org.eventb.core.prIdent name="phases" org.eventb.core.type="ℙ(phases)"/>
+<org.eventb.core.prIdent name="player_act_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="player_movement_phase" org.eventb.core.type="phases"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p69" org.eventb.core.predicate="turn_end∈BOOL">
+<org.eventb.core.prIdent name="turn_end" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="partition(locations,{Rivertown},{Easttown},{Downtown},{Merchant_District},{Shop},{Library},{Bank},{Station})">
+<org.eventb.core.prIdent name="Bank" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Downtown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Easttown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Library" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Merchant_District" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Rivertown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Shop" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Station" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p33" org.eventb.core.predicate="¬Shop=Bank">
+<org.eventb.core.prIdent name="Bank" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Shop" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p41" org.eventb.core.predicate="¬player_act_phase=player_end_phase">
+<org.eventb.core.prIdent name="phases" org.eventb.core.type="ℙ(phases)"/>
+<org.eventb.core.prIdent name="player_act_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="player_end_phase" org.eventb.core.type="phases"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p29" org.eventb.core.predicate="¬Merchant_District=Library">
+<org.eventb.core.prIdent name="Library" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Merchant_District" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="¬won=lost">
+<org.eventb.core.prIdent name="lost" org.eventb.core.type="states"/>
+<org.eventb.core.prIdent name="states" org.eventb.core.type="ℙ(states)"/>
+<org.eventb.core.prIdent name="won" org.eventb.core.type="states"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p39" org.eventb.core.predicate="phases={player_act_phase,player_movement_phase,player_end_phase,monster_act_phase,monster_add_phase,monster_movement_phase,monster_end_phase}">
+<org.eventb.core.prIdent name="monster_act_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="monster_add_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="monster_end_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="monster_movement_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="phases" org.eventb.core.type="ℙ(phases)"/>
+<org.eventb.core.prIdent name="player_act_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="player_end_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="player_movement_phase" org.eventb.core.type="phases"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p73" org.eventb.core.predicate="districts=(∅ ⦂ ℙ(locations))∨finite(districts)">
+<org.eventb.core.prIdent name="districts" org.eventb.core.type="ℙ(locations)"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p42" org.eventb.core.predicate="¬player_act_phase=monster_act_phase">
+<org.eventb.core.prIdent name="monster_act_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="phases" org.eventb.core.type="ℙ(phases)"/>
+<org.eventb.core.prIdent name="player_act_phase" org.eventb.core.type="phases"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p46" org.eventb.core.predicate="¬player_movement_phase=player_end_phase">
+<org.eventb.core.prIdent name="phases" org.eventb.core.type="ℙ(phases)"/>
+<org.eventb.core.prIdent name="player_end_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="player_movement_phase" org.eventb.core.type="phases"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="¬player_turn=monster_turn">
+<org.eventb.core.prIdent name="monster_turn" org.eventb.core.type="states"/>
+<org.eventb.core.prIdent name="player_turn" org.eventb.core.type="states"/>
+<org.eventb.core.prIdent name="states" org.eventb.core.type="ℙ(states)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="¬Easttown=Merchant_District">
+<org.eventb.core.prIdent name="Easttown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Merchant_District" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p21" org.eventb.core.predicate="¬Easttown=Bank">
+<org.eventb.core.prIdent name="Bank" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Easttown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p60" org.eventb.core.predicate="¬monster_movement_phase=monster_end_phase">
+<org.eventb.core.prIdent name="monster_end_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="monster_movement_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="phases" org.eventb.core.type="ℙ(phases)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="¬player_turn=won">
+<org.eventb.core.prIdent name="player_turn" org.eventb.core.type="states"/>
+<org.eventb.core.prIdent name="states" org.eventb.core.type="ℙ(states)"/>
+<org.eventb.core.prIdent name="won" org.eventb.core.type="states"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p31" org.eventb.core.predicate="¬Merchant_District=Station">
+<org.eventb.core.prIdent name="Merchant_District" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Station" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p48" org.eventb.core.predicate="¬player_movement_phase=monster_add_phase">
+<org.eventb.core.prIdent name="monster_add_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="phases" org.eventb.core.type="ℙ(phases)"/>
+<org.eventb.core.prIdent name="player_movement_phase" org.eventb.core.type="phases"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p37" org.eventb.core.predicate="¬Bank=Station">
+<org.eventb.core.prIdent name="Bank" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Station" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p56" org.eventb.core.predicate="¬monster_act_phase=monster_movement_phase">
+<org.eventb.core.prIdent name="monster_act_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="monster_movement_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="phases" org.eventb.core.type="ℙ(phases)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p44" org.eventb.core.predicate="¬player_act_phase=monster_movement_phase">
+<org.eventb.core.prIdent name="monster_movement_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="phases" org.eventb.core.type="ℙ(phases)"/>
+<org.eventb.core.prIdent name="player_act_phase" org.eventb.core.type="phases"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p58" org.eventb.core.predicate="¬monster_add_phase=monster_movement_phase">
+<org.eventb.core.prIdent name="monster_add_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="monster_movement_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="phases" org.eventb.core.type="ℙ(phases)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p68" org.eventb.core.predicate="state∈states">
+<org.eventb.core.prIdent name="state" org.eventb.core.type="states"/>
+<org.eventb.core.prIdent name="states" org.eventb.core.type="ℙ(states)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p70" org.eventb.core.predicate="acted∈BOOL">
+<org.eventb.core.prIdent name="acted" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p65" org.eventb.core.predicate="locations=(∅ ⦂ ℙ(locations))∨districts=(∅ ⦂ ℙ(locations))∨finite(districts)">
+<org.eventb.core.prIdent name="districts" org.eventb.core.type="ℙ(locations)"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p51" org.eventb.core.predicate="¬player_end_phase=monster_act_phase">
+<org.eventb.core.prIdent name="monster_act_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="phases" org.eventb.core.type="ℙ(phases)"/>
+<org.eventb.core.prIdent name="player_end_phase" org.eventb.core.type="phases"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p49" org.eventb.core.predicate="¬player_movement_phase=monster_movement_phase">
+<org.eventb.core.prIdent name="monster_movement_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="phases" org.eventb.core.type="ℙ(phases)"/>
+<org.eventb.core.prIdent name="player_movement_phase" org.eventb.core.type="phases"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="locations={Rivertown,Easttown,Downtown,Merchant_District,Shop,Library,Bank,Station}">
+<org.eventb.core.prIdent name="Bank" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Downtown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Easttown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Library" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Merchant_District" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Rivertown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Shop" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Station" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="¬Rivertown=Shop">
+<org.eventb.core.prIdent name="Rivertown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Shop" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p38" org.eventb.core.predicate="partition(phases,{player_act_phase},{player_movement_phase},{player_end_phase},{monster_act_phase},{monster_add_phase},{monster_movement_phase},{monster_end_phase})">
+<org.eventb.core.prIdent name="monster_act_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="monster_add_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="monster_end_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="monster_movement_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="phases" org.eventb.core.type="ℙ(phases)"/>
+<org.eventb.core.prIdent name="player_act_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="player_end_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="player_movement_phase" org.eventb.core.type="phases"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p22" org.eventb.core.predicate="¬Easttown=Station">
+<org.eventb.core.prIdent name="Easttown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Station" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="¬Rivertown=Merchant_District">
+<org.eventb.core.prIdent name="Merchant_District" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Rivertown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p61" org.eventb.core.predicate="finite(locations × districts)">
+<org.eventb.core.prIdent name="districts" org.eventb.core.type="ℙ(locations)"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p28" org.eventb.core.predicate="¬Merchant_District=Shop">
+<org.eventb.core.prIdent name="Merchant_District" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Shop" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p32" org.eventb.core.predicate="¬Shop=Library">
+<org.eventb.core.prIdent name="Library" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Shop" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p52" org.eventb.core.predicate="¬player_end_phase=monster_add_phase">
+<org.eventb.core.prIdent name="monster_add_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.prIdent name="phases" org.eventb.core.type="ℙ(phases)"/>
+<org.eventb.core.prIdent name="player_end_phase" org.eventb.core.type="phases"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p63" org.eventb.core.predicate="locations=(∅ ⦂ ℙ(locations))∨districts=(∅ ⦂ ℙ(locations))∨(⊤∧finite(districts))">
+<org.eventb.core.prIdent name="districts" org.eventb.core.type="ℙ(locations)"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="¬Easttown=Downtown">
+<org.eventb.core.prIdent name="Downtown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="Easttown" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="¬player_turn=lost">
+<org.eventb.core.prIdent name="lost" org.eventb.core.type="states"/>
+<org.eventb.core.prIdent name="player_turn" org.eventb.core.type="states"/>
+<org.eventb.core.prIdent name="states" org.eventb.core.type="ℙ(states)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="¬monster_turn=lost">
+<org.eventb.core.prIdent name="lost" org.eventb.core.type="states"/>
+<org.eventb.core.prIdent name="monster_turn" org.eventb.core.type="states"/>
+<org.eventb.core.prIdent name="states" org.eventb.core.type="ℙ(states)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p67" org.eventb.core.predicate="location∈locations">
+<org.eventb.core.prIdent name="location" org.eventb.core.type="locations"/>
+<org.eventb.core.prIdent name="locations" org.eventb.core.type="ℙ(locations)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL2"/>
 </org.eventb.core.prProof>
 </org.eventb.core.prFile>

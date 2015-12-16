@@ -1,0 +1,109 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LaTeX Template: Project Titlepage Modified (v 0.1) by rcx
+%
+% Original Source: http://www.howtotex.com
+% Date: February 2014
+% 
+% This is a title page template which be used for articles & reports.
+% 
+% This is the modified version of the original Latex template from
+% aforementioned website.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt]{report}
+\usepackage[a4paper]{geometry}
+\usepackage[myheadings]{fullpage}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{graphicx, wrapfig, subcaption, setspace, booktabs}
+\usepackage[T1]{fontenc}
+\usepackage[font=small, labelfont=bf]{caption}
+\usepackage{fourier}
+\usepackage[protrusion=true, expansion=true]{microtype}
+\usepackage[english]{babel}
+\usepackage{sectsty}
+\usepackage{amsmath}
+\usepackage{url}
+
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+\onehalfspacing
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
+
+%-------------------------------------------------------------------------------
+% HEADER & FOOTER
+%-------------------------------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\setlength\headheight{15pt}
+\fancyhead[L]{Joran Van de Woestijne and Vincent Van Gestel}
+\fancyhead[R]{MCS Project Part 2 - Report}
+\fancyfoot[R]{Page \thepage\ of \pageref{LastPage}}
+%-------------------------------------------------------------------------------
+% TITLE PAGE
+%-------------------------------------------------------------------------------
+
+\begin{document}
+
+\title{ \normalsize \textsc{[H0n05a] Modelling of Complex Systems}
+		\\ [2.0cm]
+		\HRule{0.5pt} \\
+		\LARGE \textbf{\uppercase{MCS Project Part 2: Saving Arkham Again - Report}}
+		\HRule{2pt} \\ [0.5cm]
+		\normalsize \today \vspace*{5\baselineskip}}
+
+\date{}
+
+\author{
+		Joran Van de Woestijne \\
+                Vincent Van Gestel}
+
+\maketitle
+\newpage
+
+%-------------------------------------------------------------------------------
+% Section title formatting
+\sectionfont{\scshape}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+% BODY
+%-------------------------------------------------------------------------------
+\section*{Introduction}
+This report describes our solution for the Arkham game in EventB. We discuss the LTL and CTL verifications, our design decisions regarding the EventB implementations and our time spent on the project.
+
+\section*{LTL and CTL verifications}
+\begin{enumerate}
+  \item CTL: AG (\{state = player\char`_turn\} => EF \{state = won\})
+  \item CTL: AG (\{state = lost\} => AG AX \{state = lost\})
+  \item CTL: EG (not \{state = lost\} \& not \{state = won\})
+	\item LTL: G ((\{state = player\char`_turn\} or \{state = monster\char`_turn\}) W \\ (\{card(open\char`_gates) >= open\char`_to\char`_lose\} or \{card(closed\char`_gates) >= closed\char`_to\char`_win\}))
+	\item CTL: AG (not (\{card(open\char`_gates) >= open\char`_to\char`_lose\} \& \{card(closed\char`_gates) >= closed\char`_to\char`_win\}))
+	\item CTL: AG (\{state = monster\char`_turn\} \& \{turn\char`_end = FALSE\} => AX \{state = monster\char`_turn\}) \& AG (\{state = player\char`_turn\} \& \{turn\char`_end = FALSE\} => AX \{state = player\char`_turn\}) \& \\ AG(not (\{state = lost\} \& \{state = won\}))
+	\item CTL: AG (\{state = won\} \& \{card(closed\char`_gates) >= card(open\char`_gates)\} or not \{state = won\}) 
+	\item LTL: G (\{card(monsters) = 1\} => \{card(monsters) = 1\} W [attack])
+	\item CTL: AG (\{state = won\} \& \{card(closed\char`_gates) >= 2\} or not\{state = won\})
+\end{enumerate}
+
+\section*{Design Decisions}
+For the most part, we followed the assignment, which was pretty straightforward, so there weren't many design decisions to make of our own.
+Especially the first and second exercise didn't require additional design. The phases in the fourth exercise were modeled to be similar as the states in the second exercise.
+ 
+
+\section*{Conclusion}
+This project was quite a bit easier than the previous project, thanks to the more straightforward assignment and design of EventB.
+It was interesting to model elements of the previous assignment into EventB to witness the differences. 
+
+In the end it took us around \textbf{10 hours} of work to finish the entire project, including the fourth exercise.
+
+\end{document}
+
+%\begin{figure}[!ht]
+%	\centering
+%	\includegraphics[width=0.8\textwidth]{graph}
+%	\caption{Blood pressure ranges and associated level of hypertension (American Heart Association, 2013).}
+%	\centering
+%	\label{label:graph}
+%\end{figure}
+

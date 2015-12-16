@@ -99,6 +99,7 @@
 <org.eventb.core.action name="*" org.eventb.core.assignment="open_gates ≔ open_gates ∪ {building}" org.eventb.core.label="open_gate"/>
 <org.eventb.core.guard name="+" org.eventb.core.label="monster_turn" org.eventb.core.predicate="state = monster_turn"/>
 <org.eventb.core.action name="," org.eventb.core.assignment="closed_gates ≔ closed_gates ∖ {building}" org.eventb.core.label="no_longer_closed"/>
+<org.eventb.core.guard name="." org.eventb.core.label="turn_not_done" org.eventb.core.predicate="turn_end = FALSE"/>
 <org.eventb.core.guard name="-" org.eventb.core.label="not_acted" org.eventb.core.predicate="acted = FALSE"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="evtB" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="close_gate">
