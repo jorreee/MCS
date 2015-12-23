@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="0">
+<org.eventb.core.poIdentifier name="phases" org.eventb.core.type="ℙ(phases)"/>
+<org.eventb.core.poIdentifier name="monster_act_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.poIdentifier name="monster_add_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.poIdentifier name="monster_end_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.poIdentifier name="monster_movement_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.poIdentifier name="next_phase" org.eventb.core.type="ℙ(phases×phases)"/>
+<org.eventb.core.poIdentifier name="player_act_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.poIdentifier name="player_end_phase" org.eventb.core.type="phases"/>
+<org.eventb.core.poIdentifier name="player_movement_phase" org.eventb.core.type="phases"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/Arkham/Phases.bpo|org.eventb.core.poFile#Phases|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="partition(phases,{player_act_phase},{player_movement_phase},{player_end_phase},{monster_act_phase},{monster_add_phase},{monster_movement_phase},{monster_end_phase})" org.eventb.core.source="/Arkham/Phases.buc|org.eventb.core.contextFile#Phases|org.eventb.core.axiom#."/>
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="next_phase={player_end_phase ↦ monster_act_phase,monster_end_phase ↦ player_act_phase,player_act_phase ↦ player_movement_phase,player_movement_phase ↦ player_end_phase,monster_act_phase ↦ monster_add_phase,monster_add_phase ↦ monster_movement_phase,monster_movement_phase ↦ monster_end_phase}" org.eventb.core.source="/Arkham/Phases.buc|org.eventb.core.contextFile#Phases|org.eventb.core.axiom#0"/>
+</org.eventb.core.poPredicateSet>
+</org.eventb.core.poFile>

@@ -35,7 +35,6 @@
 <org.eventb.core.guard name=")" org.eventb.core.label="building_type" org.eventb.core.predicate="building ∈ buildings"/>
 <org.eventb.core.guard name="+" org.eventb.core.label="open_gate" org.eventb.core.predicate="building ∈ open_gates"/>
 <org.eventb.core.guard name="," org.eventb.core.label="no_game_over" org.eventb.core.predicate="game_over = FALSE"/>
-<org.eventb.core.guard name="*" org.eventb.core.label="no_closed_gate" org.eventb.core.predicate="building ∉ closed_gates"/>
 <org.eventb.core.action name="-" org.eventb.core.assignment="closed_gates ≔ closed_gates ∪ {building}" org.eventb.core.label="close_gate"/>
 <org.eventb.core.action name="." org.eventb.core.assignment="open_gates ≔ open_gates ∖ {building}" org.eventb.core.label="no_open_gate"/>
 </org.eventb.core.event>
